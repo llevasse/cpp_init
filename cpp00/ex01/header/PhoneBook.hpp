@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 22:38:09 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/03 22:59:06 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/04 01:21:40 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,19 @@ class Contact
 		std::string getSecret();
 		Contact();
 		~Contact();
+};
+
+class PhoneBook
+{
+	private:
+		Contact contact[8];
+	
+	public:
+		void addContact();
+		void search();
+		void exit();
+		PhoneBook();
+		~PhoneBook();
 }
 
 #endif
