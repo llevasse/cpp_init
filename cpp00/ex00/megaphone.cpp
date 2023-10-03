@@ -6,13 +6,13 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 14:39:49 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/03 22:12:01 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/03 22:27:39 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-void	put_str(char *str)
+void	put_str(std::string str)
 {
 	for(int i = 0; str[i]; i++)
 		str[i] = std::toupper(str[i]);
