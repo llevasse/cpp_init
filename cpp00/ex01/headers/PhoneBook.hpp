@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 22:38:09 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/04 01:21:40 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/04 13:08:40 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ class PhoneBook
 		void exit();
 		PhoneBook();
 		~PhoneBook();
-}
+};
 
 #endif
