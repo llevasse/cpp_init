@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 12:58:44 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/04 13:33:00 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/04 13:40:00 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,26 @@ void Contact::setNumber(){
 void Contact::setSecret(){
 	std::cout << "What is " << firstName << " darkest secret?" << std::endl;
 	std::cin >> secret;
+}
+
+std::string Contact::getFirstName(){
+	return firstName;
+}
+
+std::string Contact::getLastName(){
+	return lastName;
+}
+
+std::string Contact::getNickName(){
+	return nickName;
+}
+
+std::string Contact::getNumber(){
+	return phoneNumber;
+}
+
+std::string Contact::getSecret{
+	return secret;
 }
 
 int	main()
