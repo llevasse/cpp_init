@@ -4,7 +4,8 @@ CC				=	c++
 RM				=	rm -rf
 
 #---CUB_VAR---------------------------------------
-SRC				=	srcs/Contact.cpp
+SRC				=	srcs/Contact.cpp \
+					srcs/PhoneBook.cpp
 OBJS_DIR		=	.OBJS/
 OBJS			=	$(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
 

@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 12:58:44 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/04 13:40:00 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/04 15:42:35 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,17 +61,6 @@ std::string Contact::getNumber(){
 	return phoneNumber;
 }
 
-std::string Contact::getSecret{
+std::string Contact::getSecret(){
 	return secret;
-}
-
-int	main()
-{
-	Contact cc;
-	cc.setFirstName();
-	cc.setLastName();
-	cc.setNickName();
-	cc.setNumber();
-	cc.setSecret();
-	return 0;
 }
