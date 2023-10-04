@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 22:38:09 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/04 13:08:40 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/04 13:24:08 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ class Contact
 		std::string secret;
 
 	public:
-		void setFirstName(std::string name);
-		void setLastName(std::string name);
-		void setNickName(std::string name);
-		void setNumber(std::string number);
-		void setSecret(std::string secret);
+		void setFirstName();
+		void setLastName();
+		void setNickName();
+		void setNumber();
+		void setSecret();
 		std::string getFirstName();
 		std::string getLastName();
 		std::string getNickName();
