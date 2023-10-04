@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 22:37:39 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/04 23:37:45 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/04 23:47:36 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	printWidth(std::string str, unsigned long width){
 	unsigned long	i = 0;
 	if (str.length() > width)
 	{
-		for (; i < width; i++)
+		for (; i < width - 1; i++)
 			std::cout << str[i];
 		std::cout << ".";
 	}
