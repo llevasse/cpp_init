@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 12:58:44 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/04 16:08:43 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/04 23:15:02 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 Contact::Contact(){
 	std::cout << "Contact constructor called!" << std::endl;
+	firstName = "";
+	lastName = "";
+	nickName = "";
 }
 
 Contact::~Contact(){

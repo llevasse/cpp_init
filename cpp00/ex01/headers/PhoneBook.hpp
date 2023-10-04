@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 22:38:09 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/04 16:08:38 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/04 23:12:13 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,9 @@ class PhoneBook
 		int		index;
 	
 	public:
-		void addContact();
-		void search();
+		void	addContact();
+		void	search();
+		int		displayStr(Contact contact);
 		PhoneBook();
 		~PhoneBook();
 };
