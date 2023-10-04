@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 22:38:09 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/04 15:37:07 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/04 16:08:38 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class Contact
 		std::string nickName;
 		std::string phoneNumber;
 		std::string secret;
+		int			index;
 
 	public:
 		void setFirstName();
@@ -30,11 +31,13 @@ class Contact
 		void setNickName();
 		void setNumber();
 		void setSecret();
+		void setIndex(int i);
 		std::string getFirstName();
 		std::string getLastName();
 		std::string getNickName();
 		std::string getNumber();
 		std::string getSecret();
+		int			getIndex();
 		Contact();
 		~Contact();
 };
@@ -43,6 +46,8 @@ class PhoneBook
 {
 	private:
 		Contact contact[8];
+		int		effective_len;
+		int		index;
 	
 	public:
 		void addContact();
