@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 22:37:39 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/05 10:52:11 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/05 11:05:43 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,16 @@ void PhoneBook::search(){
 		printWidth(contact[i].getNickName(), 10);
 		std::cout << "|" << std::endl;
 	}
+	if (effective_len == 0)
+		return ;
 	std::cout << "Search for ? :";
 	std::cin >> search;
-	while (search < 0 && search > 7)
+	while (search < 0 || search >= effective_len)
 	{
 		std::cout << "Invalid index, try again :";
 		std::cin >> search;
 	}
-	if (search < 0 && search > 7)
+	if (search >= 0 && search < effective_len)
 	{
 		std::cout << contact[search].getFirstName() << std::endl;
 		std::cout << contact[search].getLastName() << std::endl;
