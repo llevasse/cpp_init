@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 22:37:39 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/05 11:10:56 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/05 11:23:06 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,24 +34,26 @@ void	printWidth(std::string str, unsigned long width){
 		std::cout << str;
 	else
 	{
+		for (; i < width - str.length(); i++)
+			std::cout << " ";
+		i = 0;
 		for (; i <= str.length(); i++)
 			std::cout << str[i];
-		for (; i <= width; i++)
-			std::cout << " ";
 	}
 }
 
 void PhoneBook::search(){
 	int	search;
 
-	printWidth("|Id", 11);
-	printWidth("|First name", 11);
-	printWidth("|Last name", 11);
-	printWidth("|Nickname", 11);
-	std::cout << "|" << std::endl;
+	std::cout << "|";
+	printWidth("Id|", 11);
+	printWidth("First name|", 11);
+	printWidth("Last name|", 11);
+	printWidth("Nickname|", 11);
+	std::cout << std::endl;
 	for	(int i = 0; i < 8; i++)
 	{
-		std::cout << "|" << i << "         |";
+		std::cout << "|" << "         " << i << "|";
 		printWidth(contact[i].getFirstName(), 10);
 		std::cout << "|";
 		printWidth(contact[i].getLastName(), 10);
@@ -84,11 +86,16 @@ void PhoneBook::addContact(){
 	if (index >= 8)
 		index = 0;
 	contact[index].setIndex(index);
-	contact[index].setFirstName();
-	contact[index].setLastName();
-	contact[index].setNickName();
-	contact[index].setNumber();
-	contact[index].setSecret();
+	if (!std::cin.eof())
+		contact[index].setFirstName();
+	if (!std::cin.eof())
+		contact[index].setLastName();
+	if (!std::cin.eof())
+		contact[index].setNickName();
+	if (!std::cin.eof())
+		contact[index].setNumber();
+	if (!std::cin.eof())
+		contact[index].setSecret();
 	index++;
 	if (effective_len < 8)
 		effective_len++;
