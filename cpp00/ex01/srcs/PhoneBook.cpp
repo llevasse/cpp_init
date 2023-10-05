@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 22:37:39 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/05 11:23:06 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/05 14:32:14 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ void	printWidth(std::string str, unsigned long width){
 }
 
 void PhoneBook::search(){
-	int	search;
+	std::string	input;
+	int			search;
 
 	std::cout << "|";
 	printWidth("Id|", 11);
@@ -64,14 +65,15 @@ void PhoneBook::search(){
 	if (effective_len == 0)
 		return ;
 	std::cout << "Search for ? :";
-	std::cin >> search;
-	while ((search < 0 || search >= effective_len) && !std::cin.eof())
+	std::cin >> input;
+	while ((input.length() != 1 || input[0] - '0' < 0 || input[0] - '0' >= effective_len) && !std::cin.eof())
 	{
 		std::cout << "Invalid index, try again :";
-		std::cin >> search;
+		std::cin >> input;
 	}
 	if (std::cin.eof())
 		std::cout << std::endl;
+	search = input[0] - '0';
 	if (search >= 0 && search < effective_len && !std::cin.eof())
 	{
 		std::cout << contact[search].getFirstName() << std::endl;
