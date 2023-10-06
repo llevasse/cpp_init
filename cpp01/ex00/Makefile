@@ -7,13 +7,12 @@ RM				=	rm -rf
 SRC				=	./main.cpp \
 					./Zombie.cpp \
 					./newZombie.cpp \
-					./randomChump.cpp
+					./randomChump.cpp \
+					./main.cpp
 OBJS_DIR		=	.OBJS/
 OBJS			=	$(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
 
-HEADER_DIR		=	headers/
-HEADER_FILE		=	headers/Zombie.hpp
-INCLUDE			=	-I $(HEADER_DIR)
+HEADER_FILE		=	Zombie.hpp
 
 # ----
 FLAGS			=	-Wall -Werror -Wextra -std=c++98
@@ -23,11 +22,11 @@ FLAGS			=	-Wall -Werror -Wextra -std=c++98
 all:			$(NAME)
 
 $(NAME):		$(OBJS_DIR) Makefile $(HEADER_FILE) $(OBJS)
-				$(CC) $(FLAGS) $(INCLUDE) $(OBJS) -o $@
+				$(CC) $(FLAGS) $(OBJS) -o $@
 
 $(OBJS_DIR)%.o:	%.cpp $(HEADER_FILE)
 				mkdir -p $(shell dirname $@)
-				$(CC) $(FLAGS) $(INCLUDE) -c $< -o $@
+				$(CC) $(FLAGS) -c $< -o $@
 
 $(OBJS_DIR):
 				mkdir -p $(OBJS_DIR)
