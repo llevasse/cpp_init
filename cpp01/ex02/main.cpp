@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 22:29:06 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/07 00:52:45 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/07 01:00:45 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,9 @@ int	main()
 	std::cout << "string           address : " << &hi << std::endl;
 	std::cout << "string reference address : " << &stringREF << std::endl;
 	std::cout << "string   pointer address : " << &stringPTR << std::endl;
+
+	std::cout << "string             value : " << hi << std::endl;
+	std::cout << "string   reference value : " << stringREF << std::endl;
+	std::cout << "string     pointer value : " << *stringPTR << std::endl;
 	return (0);
 }
