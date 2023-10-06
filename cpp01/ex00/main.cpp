@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 22:29:06 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/06 22:33:33 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/06 22:44:28 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 int	main()
 {
-	Zombie::randomChump("Greg");
+	randomChump("Greg");
+	return (0);
 }

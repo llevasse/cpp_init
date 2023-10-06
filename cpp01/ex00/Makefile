@@ -8,7 +8,7 @@ SRC				=	./main.cpp \
 					./Zombie.cpp \
 					./newZombie.cpp \
 					./randomChump.cpp \
-					./main.cpp
+
 OBJS_DIR		=	.OBJS/
 OBJS			=	$(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
 
