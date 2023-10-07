@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 22:38:09 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/07 21:30:41 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/07 23:21:31 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@
 class Weapon
 {
 	private:
-		std::string type;
+		std::string _type;
 
 	public:
 		void setType( std::string type );
 		const std::string getType();
+		Weapon *duplicate( Weapon weapon );
 		Weapon();
 		Weapon(std::string type);
 		~Weapon();
