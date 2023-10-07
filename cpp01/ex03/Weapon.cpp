@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 20:18:05 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/07 20:53:28 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/07 21:30:26 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 Weapon::Weapon(){
 	std::cout << "Weapon constructor called" << std::endl;
-	this.type = "hands";
+	this->type = "hands";
 }
 
 Weapon::Weapon( std::string type ){
 	std::cout << "Weapon constructor called with arg \"" << type << "\"" << std::endl;
-	this.type = type;
+	this->type = type;
 }
 
 void Weapon::setType( std::string type ){
-	this.type = type;
+	this->type = type;
 }
 
 const std::string Weapon::getType(){
-	return this.type;
+	return this->type;
 }
 
 Weapon::~Weapon(){
