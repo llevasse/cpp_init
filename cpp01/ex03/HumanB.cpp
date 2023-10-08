@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 21:08:55 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/07 23:24:34 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/08 13:39:39 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ HumanB::HumanB( std::string name){
 	_weapon = NULL;
 }
 
-void HumanB::setWeapon(Weapon weapon){
+void HumanB::setWeapon(Weapon &weapon){
 	if (_weapon == NULL)
-		_weapon = new Weapon;
+		_weapon = &weapon;
 	_weapon->setType(weapon.getType());
 }
 
