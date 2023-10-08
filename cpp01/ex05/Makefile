@@ -4,15 +4,15 @@ CC				=	c++
 RM				=	rm -rf
 
 #---CUB_VAR---------------------------------------
-SRC				=	./srcs/main.cpp \
-					./srcs/Harl.cpp \
+SRC				=	srcs/main.cpp \
+					srcs/Harl.cpp \
 
 OBJS_DIR		=	.OBJS/
 OBJS			=	$(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
 
-HEADER_FILE		=	./header/Harl.hpp \
+HEADER_FILE		=	header/Harl.hpp \
 
-INCLUDE			=	-I ./header
+INCLUDE			=	-I header
 
 # ----
 FLAGS			=	-Wall -Werror -Wextra -std=c++98
