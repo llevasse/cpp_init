@@ -1,15 +1,18 @@
 #---COMMON_VAR-----------------------------------
-NAME			=	sedIsForLosers
+NAME			=	Harl
 CC				=	c++
 RM				=	rm -rf
 
 #---CUB_VAR---------------------------------------
-SRC				=	./main.cpp \
+SRC				=	./srcs/main.cpp \
+					./srcs/Harl.cpp \
 
 OBJS_DIR		=	.OBJS/
 OBJS			=	$(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
 
-HEADER_FILE		=	
+HEADER_FILE		=	./header/Harl.hpp \
+
+INCLUDE			=	-I ./header
 
 # ----
 FLAGS			=	-Wall -Werror -Wextra -std=c++98
@@ -19,11 +22,11 @@ FLAGS			=	-Wall -Werror -Wextra -std=c++98
 all:			$(NAME)
 
 $(NAME):		$(OBJS_DIR) Makefile $(HEADER_FILE) $(OBJS)
-				$(CC) $(FLAGS) $(OBJS) -o $@
+				$(CC) $(FLAGS) $(INCLUDE) $(OBJS) -o $@
 
 $(OBJS_DIR)%.o:	%.cpp $(HEADER_FILE)
 				mkdir -p $(shell dirname $@)
-				$(CC) $(FLAGS) -c $< -o $@
+				$(CC) $(FLAGS) $(INCLUDE) -c $< -o $@
 
 $(OBJS_DIR):
 				mkdir -p $(OBJS_DIR)
