@@ -1,5 +1,5 @@
 #---COMMON_VAR-----------------------------------
-NAME			=	Harl
+NAME			=	harlFilter
 CC				=	c++
 RM				=	rm -rf
 
