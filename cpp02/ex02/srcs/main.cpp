@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:28:36 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/09 22:41:34 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/09 23:12:16 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,6 @@ int	main(void) {
 	std::cout << "a is " << a << std::endl;
 	std::cout << "a-- is " << a-- << std::endl;
 	std::cout << "a is " << a << std::endl;
+	std::cout << "min a/b " << Fixed::min(a, b) << std::endl;
+	std::cout << "max a/b " << Fixed::max(a, b) << std::endl;
 }

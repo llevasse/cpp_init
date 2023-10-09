@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 09:15:38 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/09 23:02:56 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/09 23:11:47 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,18 @@ Fixed Fixed::operator -- (int){
 	Fixed temp = *this;
 	nb--;
 	return (temp);
+}
+
+Fixed &Fixed::min(Fixed &a, Fixed &b){
+	if (a > b)
+		return (b);
+	return (a);
+}
+
+Fixed &Fixed::max(Fixed &a, Fixed &b){
+	if (a < b)
+		return (b);
+	return (a);
 }
 
 std::ostream & operator << (std::ostream &out, const Fixed &obj){
