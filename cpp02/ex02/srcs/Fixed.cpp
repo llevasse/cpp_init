@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 09:15:38 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/09 20:55:22 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/09 21:42:01 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,12 @@ Fixed	&Fixed::operator= (const Fixed &obj){
 		this->nb = obj.nb;
 	}
 	return (*this);
+}
+
+Fixed	Fixed::operator+ (const Fixed &obj){
+	Fixed temp;
+	temp.nb = nb + obj.nb;
+	return (temp);
 }
 
 std::ostream & operator << (std::ostream &out, const Fixed &obj){
