@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:28:36 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/09 22:04:36 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/09 22:07:01 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,6 @@ int	main(void) {
 	std::cout << "a < b is " << (a < b) << std::endl;
 	std::cout << "a >= b is " << (a >= b) << std::endl;
 	std::cout << "a <= b is " << (a <= b) << std::endl;
+	std::cout << "a == b is " << (a == b) << std::endl;
+	std::cout << "a != b is " << (a != b) << std::endl;
 }
