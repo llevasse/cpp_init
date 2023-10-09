@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 09:15:38 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/09 21:59:01 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/09 22:04:05 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ Fixed::Fixed(int const value){
 }
 
 Fixed::Fixed(float const value){
+	std::cout << "Fixed point float constructor called!" << std::endl;
 	nb = roundf(value * (1 << fractBits));
-	std::cout << "Fixed point float constructor called!" << nb << std::endl;
 }
 
 float	Fixed::toFloat( void ) const{
@@ -76,6 +76,18 @@ Fixed	Fixed::operator/ (const Fixed &obj){
 
 bool	Fixed::operator > (const Fixed &obj){
 	return (nb > obj.nb);
+}
+
+bool	Fixed::operator < (const Fixed &obj){
+	return (nb < obj.nb);
+}
+
+bool	Fixed::operator >= (const Fixed &obj){
+	return (nb >= obj.nb);
+}
+
+bool	Fixed::operator <= (const Fixed &obj){
+	return (nb <= obj.nb);
 }
 
 std::ostream & operator << (std::ostream &out, const Fixed &obj){

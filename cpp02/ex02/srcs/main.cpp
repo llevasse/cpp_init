@@ -6,17 +6,20 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:28:36 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/09 22:01:17 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/09 22:04:36 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 int	main(void) {
-	Fixed		a( 42.1f);
+	Fixed		a( 42.016f);
 	Fixed 		b( 42 );
 
 	std::cout << "a is " << a << std::endl;
 	std::cout << "b is " << b << std::endl;
 	std::cout << "a > b is " << (a > b) << std::endl;
+	std::cout << "a < b is " << (a < b) << std::endl;
+	std::cout << "a >= b is " << (a >= b) << std::endl;
+	std::cout << "a <= b is " << (a <= b) << std::endl;
 }
