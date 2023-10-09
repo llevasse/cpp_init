@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:28:36 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/09 21:48:58 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/09 21:50:11 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int	main(void) {
 	Fixed		a;
 	Fixed 		b( 21 );
 	Fixed 		c( 42.42f);
-	Fixed 		d( 63 );
-	Fixed		e = d - b;
+	Fixed 		d( 2 );
+	Fixed		e = b * d;
 
 	a = Fixed( 1234.4321f );
 	std::cout << "a is " << a << std::endl;
