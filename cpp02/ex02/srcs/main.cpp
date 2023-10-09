@@ -6,29 +6,17 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:28:36 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/09 21:52:34 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/09 22:01:17 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 int	main(void) {
-	Fixed		a;
-	Fixed 		b( 84 );
-	Fixed 		c( 42.42f);
-	Fixed 		d( 2 );
-	Fixed		e = b / d;
+	Fixed		a( 42.1f);
+	Fixed 		b( 42 );
 
-	a = Fixed( 1234.4321f );
 	std::cout << "a is " << a << std::endl;
 	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
-	std::cout << "e is " << e << std::endl;
-
-	std::cout << "a is " << a.toInt() << " as interger" << std::endl;
-	std::cout << "b is " << b.toInt() << " as interger" << std::endl;
-	std::cout << "c is " << c.toInt() << " as interger" << std::endl;
-	std::cout << "d is " << d.toInt() << " as interger" << std::endl;
-	std::cout << "e is " << e.toInt() << " as interger" << std::endl;
+	std::cout << "a > b is " << (a > b) << std::endl;
 }
