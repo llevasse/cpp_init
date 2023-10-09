@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 09:14:52 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/09 21:58:07 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/09 23:00:53 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,10 @@ class Fixed{
 		bool operator <= (const Fixed &obj);
 		bool operator == (const Fixed &obj);
 		bool operator != (const Fixed &obj);
+		Fixed operator ++ (int);
+		Fixed& operator ++ ();
+		Fixed operator -- (int);
+		Fixed& operator -- ();
 		friend std::ostream &operator << (std::ostream &out, const Fixed &obj) ;
 };
 
