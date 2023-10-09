@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 09:15:38 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/09 15:39:54 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/09 20:50:12 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,17 @@ Fixed::Fixed(Fixed const &obj){
 
 Fixed::Fixed(int const value){
 	std::cout << "Fixed point int constructor called!" << std::endl;
-	nb = value;
+	nb = value << fractBits;
 }
 
 Fixed::Fixed(float const value){
-	std::cout << "Fixed point float constructor called!" << std::endl;
-	nb = value;
+	float tmp = value / (fractBits << 1);
+	std::cout << "Fixed point float constructor called!" << tmp << std::endl;
+	nb = value * (1 << fractBits);
 }
 
 float	Fixed::toFloat( void ) const{
-	return (nb << fractBits);
+	return (float(nb / ( 1 << fractBits)));
 }
 
 int		Fixed::toInt( void ) const{
