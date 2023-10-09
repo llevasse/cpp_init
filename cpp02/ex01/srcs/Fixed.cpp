@@ -6,11 +6,12 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 09:15:38 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/09 20:50:12 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/09 20:55:22 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include <cmath>
 
 Fixed::Fixed(){
 	std::cout << "Fixed point constructor called!" << std::endl;
@@ -29,13 +30,12 @@ Fixed::Fixed(int const value){
 }
 
 Fixed::Fixed(float const value){
-	float tmp = value / (fractBits << 1);
-	std::cout << "Fixed point float constructor called!" << tmp << std::endl;
-	nb = value * (1 << fractBits);
+	nb = roundf(value * (1 << fractBits));
+	std::cout << "Fixed point float constructor called!" << nb << std::endl;
 }
 
 float	Fixed::toFloat( void ) const{
-	return (float(nb / ( 1 << fractBits)));
+	return (float(nb) / ( 1 << fractBits));
 }
 
 int		Fixed::toInt( void ) const{
