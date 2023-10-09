@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 09:15:38 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/09 21:51:34 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/09 21:52:51 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,12 @@ Fixed	Fixed::operator- (const Fixed &obj){
 Fixed	Fixed::operator* (const Fixed &obj){
 	Fixed temp;
 	temp.nb = nb * obj.toInt();
+	return (temp);
+}
+
+Fixed	Fixed::operator/ (const Fixed &obj){
+	Fixed temp;
+	temp.nb = nb / obj.toInt();
 	return (temp);
 }
 
