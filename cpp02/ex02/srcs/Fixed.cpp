@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 09:15:38 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/09 23:11:47 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/09 23:29:51 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,15 +121,19 @@ Fixed Fixed::operator -- (int){
 }
 
 Fixed &Fixed::min(Fixed &a, Fixed &b){
-	if (a > b)
-		return (b);
-	return (a);
+	return (a < b ? a : b);
 }
 
 Fixed &Fixed::max(Fixed &a, Fixed &b){
-	if (a < b)
-		return (b);
-	return (a);
+	return (a > b ? a : b);
+}
+
+Fixed const &Fixed::min(const Fixed &a, const Fixed &b){
+	return (a.getRawBits() < b.getRawBits() ? a : b);
+}
+
+Fixed const &Fixed::max(const Fixed &a, const Fixed &b){
+	return (a.getRawBits() > b.getRawBits() ? a : b);
 }
 
 std::ostream & operator << (std::ostream &out, const Fixed &obj){

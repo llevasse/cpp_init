@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 09:14:52 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/09 23:11:21 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/09 23:30:12 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ class Fixed{
 		Fixed operator -- (int);
 		Fixed& operator -- ();
 		static Fixed	&min(Fixed &a, Fixed &b);
-		static Fixed	&min(const Fixed &a, const Fixed &b);
+		static const Fixed	&min(const Fixed &a, const Fixed &b);
 		static Fixed	&max(Fixed &a, Fixed &b);
-		static Fixed	&max(const Fixed &a, const Fixed &b);
+		static const Fixed	&max(const Fixed &a, const Fixed &b);
 		friend std::ostream &operator << (std::ostream &out, const Fixed &obj) ;
 };
 
