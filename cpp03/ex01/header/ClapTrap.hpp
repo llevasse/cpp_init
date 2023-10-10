@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 11:15:32 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/10 16:32:34 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/10 19:42:18 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 # include <iostream>
 
 class ClapTrap{
-	public:
+	protected:
 		std::string _name;
 		int			_hp;
 		int			_energy;
 		int			_attack;
-
+	public:
 		ClapTrap( void );
 		ClapTrap( std::string name );
 		ClapTrap( ClapTrap const &obj);
