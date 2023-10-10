@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 15:52:35 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/10 20:03:36 by llevasse         ###   ########.fr       */
+/*   Created: 2023/10/10 11:15:32 by llevasse          #+#    #+#             */
+/*   Updated: 2023/10/10 19:59:22 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
-int	main(){
-	ClapTrap	Elyse;
-	ScavTrap	Melisandre = ScavTrap("Melisandre");
-	FragTrap	Arno = FragTrap("Arno");
+# include <iostream>
+# include "ClapTrap.hpp"
 
-	Melisandre.guardGate();
-	for (int i = 0; i <= 12; i++)
-		Melisandre.attack("Elyse");
-	for (int i = 0; i < 5; i++)
-	{
-		if (i % 2)
-			Elyse.beRepaired(5);
-		else
-			Elyse.takeDamage(9);
-	}
-	Arno.highFivesGuys();
-	Melisandre.takeDamage(42);
-}
+class FragTrap : public ClapTrap{
+	public:
+		FragTrap( void );
+		FragTrap( std::string name );
+		FragTrap( FragTrap const &obj);
+		FragTrap	operator= (const FragTrap &obj);
+		void		highFivesGuys( void );
+		~FragTrap( void );
+};
+
+#endif

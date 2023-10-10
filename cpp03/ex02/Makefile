@@ -1,12 +1,13 @@
 #---COMMON_VAR-----------------------------------
-NAME			=	ScavTrap
+NAME			=	FragTrap
 CC				=	c++
 RM				=	rm -rf
 
 #---CUB_VAR---------------------------------------
 SRC				=	./srcs/main.cpp \
 					./srcs/ClapTrap.cpp \
-					./srcs/ScavTrap.cpp
+					./srcs/ScavTrap.cpp \
+					./srcs/FragTrap.cpp \
 
 OBJS_DIR		=	.OBJS/
 OBJS			=	$(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
