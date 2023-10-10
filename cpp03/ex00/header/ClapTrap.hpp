@@ -6,12 +6,12 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 11:15:32 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/10 15:37:23 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/10 15:57:18 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAPTRAP_HPP
-# define CLAPTRAPP_HPP
+# define CLAPTRAP_HPP
 
 # include <iostream>
 
@@ -29,7 +29,7 @@ class ClapTrap{
 		void		attack( const std::string& target );
 		void		takeDamage( unsigned int amount );
 		void		beRepaired( unsigned int amount );
-
+		~ClapTrap( void );
 };
 
 #endif
