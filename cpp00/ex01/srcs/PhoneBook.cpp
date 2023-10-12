@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 22:37:39 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/12 18:39:30 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/12 18:56:53 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,22 +53,22 @@ void PhoneBook::search(){
 	if (effective_len == 0)
 		return ;
 	std::cout << "Search for ? :";
-	std::cin >> input;
+	std::getline(std::cin, input);
 	while ((input.length() != 1 || input[0] - '0' < 0 || input[0] - '0' >= effective_len) && !std::cin.eof())
 	{
 		std::cout << "Invalid index, try again :";
-		std::cin >> input;
+		std::getline(std::cin, input);
 	}
 	if (std::cin.eof())
 		std::cout << std::endl;
 	search = input[0] - '0';
 	if (search >= 0 && search < effective_len && !std::cin.eof())
 	{
-		std::cout << contact[search].getFirstName() << std::endl;
-		std::cout << contact[search].getLastName() << std::endl;
-		std::cout << contact[search].getNickName() << std::endl;
-		std::cout << contact[search].getNumber() << std::endl;
-		std::cout << contact[search].getSecret() << std::endl;
+		std::cout << "First name : " << contact[search].getFirstName() << std::endl;
+		std::cout << "Last name : " << contact[search].getLastName() << std::endl;
+		std::cout << "Nickname : " << contact[search].getNickName() << std::endl;
+		std::cout << "Phone number : " << contact[search].getNumber() << std::endl;
+		std::cout << "Darkest secret : " << contact[search].getSecret() << std::endl;
 	}
 }
 
@@ -96,7 +96,7 @@ int	main(){
 	std::string input;
 	while (1)
 	{
-		std::cin >> input;
+		std::getline(std::cin, input);
 		if (std::cin.eof() || input.compare("EXIT") == 0)
 			return (0);
 		if (input.compare("SEARCH") == 0)
