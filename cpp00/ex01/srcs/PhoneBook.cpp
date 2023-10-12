@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 22:37:39 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/05 14:32:14 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/12 18:39:30 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,11 @@ PhoneBook::~PhoneBook(){
 }
 
 void	printWidth(std::string str, unsigned long width){
-	unsigned long	i = 0;
-	if (str.length() > width)
-	{
-		for (; i < width - 1; i++)
-			std::cout << str[i];
-		std::cout << ".";
-	}
-	else if (str.length() == width)
+	std::cout << std::setw(width);
+	if (str.length() <= width)
 		std::cout << str;
 	else
-	{
-		for (; i < width - str.length(); i++)
-			std::cout << " ";
-		i = 0;
-		for (; i <= str.length(); i++)
-			std::cout << str[i];
-	}
+		std::cout << str.substr(0, width - 1) + ".";
 }
 
 void PhoneBook::search(){

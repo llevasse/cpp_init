@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 22:38:09 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/04 23:12:13 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/12 18:30:36 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PHONEBOOK_HPP
 
 # include <iostream>
+# include <iomanip>
 
 class Contact
 {
