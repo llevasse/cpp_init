@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 22:37:39 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/12 18:56:53 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/10/25 20:22:22 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,12 +96,15 @@ int	main(){
 	std::string input;
 	while (1)
 	{
+		std::cout << ">" << std::endl;
 		std::getline(std::cin, input);
 		if (std::cin.eof() || input.compare("EXIT") == 0)
 			return (0);
-		if (input.compare("SEARCH") == 0)
+		else if (input.compare("SEARCH") == 0)
 			pb.search();
-		if (input.compare("ADD") == 0)
+		else if (input.compare("ADD") == 0)
 			pb.addContact();
+		else
+			std::cout << "Invalid command, valid commands are 'ADD', 'SEARCH' and 'EXIT'" << std::endl;
 	}
 }
