@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 15:52:35 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/05 18:22:03 by llevasse         ###   ########.fr       */
+/*   Created: 2023/10/10 11:15:32 by llevasse          #+#    #+#             */
+/*   Updated: 2023/11/05 18:19:09 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
+#ifndef DOG_HPP
+# define DOG_HPP
 
-int	main(){
-	const Animal*	primal = new Animal();
-	const Animal*	d = new Dog();
-	const Animal*	c = new Cat();
+# include <iostream>
+# include "Animal.hpp"
 
-	delete primal;
-	delete d;
-	delete c;
-}
+class Dog : public Animal{
+	public:
+		Dog( void );
+		Dog( std::string type );
+		Dog( Dog const &obj);
+		Dog	operator= (const Dog &obj);
+		~Dog( void );
+};
+
+#endif
