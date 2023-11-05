@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:51:59 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/05 17:56:38 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/05 18:05:57 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,14 @@ Animal Animal::operator= ( Animal const &obj){
 	if (this != &obj)
 		this->type = obj.type;
 	return (*this);
+}
+
+std::string	getType(){
+	return (this->type);
+}
+
+void		setType(std::string type){
+	this->type = type;
 }
 
 Animal::~Animal( void ){

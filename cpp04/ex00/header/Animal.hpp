@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 11:15:32 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/05 17:51:13 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/05 18:05:24 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ class Animal{
 		Animal( Animal const &obj);
 		Animal	operator= (const Animal &obj);
 		~Animal( void );
+		void		setType(std::string type);
+		std::string	getType();
 };
 
 #endif
