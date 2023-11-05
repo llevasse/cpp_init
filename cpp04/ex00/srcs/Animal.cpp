@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:51:59 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/05 18:15:48 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/05 18:26:01 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,16 @@ Animal Animal::operator= ( Animal const &obj){
 	return (*this);
 }
 
-std::string	Animal::getType(){
+std::string	Animal::getType( void ){
 	return (type);
 }
 
 void		Animal::setType(std::string type){
 	this->type = type;
+}
+
+void		Animal::makeSound( void ) const{
+	std::cout << "*indistiguishable noise*" << std::endl;
 }
 
 Animal::~Animal( void ){

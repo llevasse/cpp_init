@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 11:15:32 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/05 18:05:24 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/05 18:26:08 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Animal{
 		~Animal( void );
 		void		setType(std::string type);
 		std::string	getType();
+		void		makeSound() const;
 };
 
 #endif
