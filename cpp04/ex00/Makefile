@@ -6,15 +6,19 @@ RM				=	rm -rf
 #---CUB_VAR---------------------------------------
 SRC				=	./srcs/main.cpp \
 					./srcs/Animal.cpp \
+					./srcs/WrongAnimal.cpp \
 					./srcs/Dog.cpp \
-					./srcs/Cat.cpp
+					./srcs/Cat.cpp \
+					./srcs/WrongCat.cpp
 
 OBJS_DIR		=	.OBJS/
 OBJS			=	$(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
 
 HEADER_FILE		=	header/Animal.hpp \
+					header/WrongAnimal.hpp \
 					header/Dog.hpp \
-					header/Cat.hpp
+					header/Cat.hpp \
+					header/WrongCat.hpp
 INCLUDE			=	-I header/
 
 # ----
