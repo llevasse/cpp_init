@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:51:59 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/05 18:26:01 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/09 22:54:26 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Animal::Animal( void ){
 }
 
 Animal::Animal( std::string type ){
-	std::cout << "Animal constructor called!" << std::endl;
+	std::cout << "Animal constructor called with type " << type << "!" << std::endl;
 	this->type = type;
 }
 

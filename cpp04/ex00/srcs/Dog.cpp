@@ -6,20 +6,14 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:51:59 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/05 18:13:39 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/09 22:53:38 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog( void ){
+Dog::Dog( void ):Animal("Dog"){
 	std::cout << "Dog default constructor called!" << std::endl;
-	this->type = "doggo";
-}
-
-Dog::Dog( std::string type ){
-	std::cout << "Dog constructor called with name!" << std::endl;
-	this->type = type;
 }
 
 Dog::Dog( Dog const &obj){
@@ -37,4 +31,8 @@ Dog Dog::operator= ( Dog const &obj){
 
 Dog::~Dog( void ){
 	std::cout << "Dog destructor is called!" << std::endl;
+}
+
+void		Dog::makeSound( void ) const{
+	std::cout << "WOUF WOUF" << std::endl;
 }
