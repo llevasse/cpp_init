@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:52:35 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/10 18:53:03 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/10 19:47:08 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,24 @@ int	main(){
 		else
 			animals[i] = new Cat();
 	}
+	
+	std::cout << std::endl;
+	animals[9]->setIdea(1, "I want a stick !");
+	std::cout << animals[9]->getIdea(1) << std::endl;
+	std::cout << animals[4]->getIdea(1) << std::endl;
+	*animals[4] = *animals[9];
+	std::cout << animals[9]->getIdea(1) << std::endl;
+	std::cout << animals[4]->getIdea(1) << std::endl;
+	animals[9]->setIdea(1, "I don't want a stick !");
+	std::cout << animals[9]->getIdea(1) << std::endl;
+	std::cout << animals[4]->getIdea(1) << std::endl;
 
 	std::cout << std::endl << std::endl;
 
 	for (int i=9;i>=0;i--){
-		delete animals[i];
+		if (animals[i]){
+			std::cout << i << " : ";
+			delete animals[i];
+		}
 	}
 }

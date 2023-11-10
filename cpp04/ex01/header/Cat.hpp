@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 11:15:32 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/10 18:46:50 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/10 19:19:57 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 # include "Brain.hpp"
 
 class Cat : public Animal{
-	private:
-		Brain	*brain;
 	public:
 		Cat( void );
 		Cat( Cat const &obj);
