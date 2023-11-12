@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:51:59 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/10 19:47:19 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/12 14:48:11 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ Animal& Animal::operator= ( Animal const& obj) {
 	std::cout << "Animal copy assignment operator called!" << std::endl;
 	if (this != &obj){
 		type = obj.type;
-		brain = obj.brain;
+		for (int i=0;i<100;i++)
+			brain->setIdea(i, obj.brain->getIdea(i));
 	}
 	return (*this);
 }
