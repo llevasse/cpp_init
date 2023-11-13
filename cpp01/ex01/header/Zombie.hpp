@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 22:38:09 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/06 23:10:11 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/13 18:40:53 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class Zombie
 		void announce( void );
 		void setName( std::string name );
 		Zombie();
+		Zombie( std::string name);
 		~Zombie();
 };
 Zombie* zombieHorde( int N, std::string name );
