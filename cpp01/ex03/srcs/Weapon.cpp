@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 20:18:05 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/07 23:22:45 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/13 19:09:39 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void Weapon::setType( std::string type ){
 	_type = type;
 }
 
-const std::string Weapon::getType(){
+const std::string& Weapon::getType(){
 	return _type;
 }
 
