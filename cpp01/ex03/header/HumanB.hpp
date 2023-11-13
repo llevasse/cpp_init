@@ -6,15 +6,14 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 21:09:38 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/08 13:39:28 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/13 19:02:33 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-# define HUMANB_HPP
+#pragma once
 
-# include <iostream>
-# include "Weapon.hpp"
+#include <iostream>
+#include "Weapon.hpp"
 
 class HumanB{
 	private :
@@ -26,4 +25,3 @@ class HumanB{
 		HumanB(std::string name);
 		~HumanB();
 };
-#endif

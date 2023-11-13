@@ -6,14 +6,13 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 22:38:09 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/08 13:29:11 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/13 19:02:42 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-# define WEAPON_HPP
+#pragma once
 
-# include <iostream>
+#include <iostream>
 
 class Weapon
 {
@@ -28,4 +27,3 @@ class Weapon
 		Weapon(std::string type);
 		~Weapon();
 };
-#endif

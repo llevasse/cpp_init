@@ -11,6 +11,7 @@ SRC				=	./srcs/main.cpp \
 
 OBJS_DIR		=	.OBJS/
 OBJS			=	$(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
+DEPS			=	$(addprefix $(OBJS_DIR), $(SRC:.cpp=.d))
 
 HEADER_FILE		=	./header/Weapon.hpp \
 					./header/HumanA.hpp \
@@ -20,17 +21,19 @@ INCLUDE			=	-I ./header
 
 # ----
 FLAGS			=	-Wall -Werror -Wextra -std=c++98
+DEPS_FLAGS		=	-MMD -MP
 
 #---RULES----------------------------------------
 
 all:			$(NAME)
 
-$(NAME):		$(OBJS_DIR) Makefile $(HEADER_FILE) $(OBJS)
+$(NAME):		$(OBJS)
 				$(CC) $(FLAGS) $(INCLUDE) $(OBJS) -o $@
 
-$(OBJS_DIR)%.o:	%.cpp $(HEADER_FILE)
+-include $(DEPS)
+$(OBJS_DIR)%.o:	%.cpp
 				mkdir -p $(shell dirname $@)
-				$(CC) $(FLAGS) $(INCLUDE) -c $< -o $@
+				$(CC) $(FLAGS) $(DEPS_FLAGS) $(INCLUDE) -c $< -o $@
 
 $(OBJS_DIR):
 				mkdir -p $(OBJS_DIR)
