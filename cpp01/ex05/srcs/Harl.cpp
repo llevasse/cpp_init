@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 18:28:59 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/08 19:22:49 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/13 19:35:28 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void Harl::complain( std::string level ){
 		if (level.compare(option[i]) == 0)
 			{ (this->*ptr[i])(); return ; }
 	}
+	std::cout << "*Rambling about something*" << std::endl;
 }
 
 Harl::~Harl(){
