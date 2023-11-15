@@ -6,13 +6,13 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 21:28:15 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/13 18:42:05 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/15 10:58:35 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-void Zombie::announce( void ){
+void Zombie::announce(){
 	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
