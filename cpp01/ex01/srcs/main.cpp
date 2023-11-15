@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 22:29:06 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/14 14:07:18 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/15 13:00:23 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 int	main()
 {
 	Zombie *horde;
+	int	N	= 5;
 	
-	horde = zombieHorde(42, "Eilis");
+	horde = zombieHorde(N, "Eilis");
 
-	for (int i=0;i<42;i++){
+	for (int i=0;i<N;i++){
 		std::cout << i << " : ";
 		horde[i].announce();
 	}
