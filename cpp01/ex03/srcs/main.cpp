@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 22:29:06 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/13 18:49:29 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/15 11:00:58 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int main()
 {
 	{
 		Weapon club = Weapon("crude spiked club");
+//		HumanA ErrorCompile("MissingNo");	// D:
 		HumanA bob("Bob", club);
 		bob.attack();
 		club.setType("some other type of club");
