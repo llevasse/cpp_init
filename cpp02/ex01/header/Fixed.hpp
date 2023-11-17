@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 09:14:52 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/09 15:46:47 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/17 11:47:26 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Fixed{
 		int		toInt( void ) const;
 		~Fixed();
 		Fixed &operator = (const Fixed &obj);
-		friend std::ostream &operator << (std::ostream &out, const Fixed &obj) ;
 };
+std::ostream &operator << (std::ostream &out, const Fixed &obj) ;
 
 #endif
