@@ -39,7 +39,7 @@ float	Fixed::toFloat( void ) const{
 }
 
 int		Fixed::toInt( void ) const{
-	return (nb >> fractBits);
+	return nb;
 }
 
 Fixed	&Fixed::operator= (const Fixed &obj){
@@ -56,7 +56,7 @@ std::ostream & operator << (std::ostream &out, const Fixed &obj){
 }
 
 int	Fixed::getRawBits( void ) const{
-	return (nb >> fractBits);
+	return nb;
 }
 
 void Fixed::setRawBits( int const raw ){

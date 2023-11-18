@@ -32,7 +32,7 @@ Fixed	&Fixed::operator= (const Fixed &obj){
 }
 
 int	Fixed::getRawBits( void ) const{
-	return (nb >> fractBits);
+	return nb;
 }
 
 void Fixed::setRawBits( int const raw ){
