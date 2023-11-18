@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 09:15:38 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/09 20:55:22 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/18 18:23:51 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ std::ostream & operator << (std::ostream &out, const Fixed &obj){
 }
 
 int	Fixed::getRawBits( void ) const{
-	return nb;
+	return (nb);
 }
 
 void Fixed::setRawBits( int const raw ){

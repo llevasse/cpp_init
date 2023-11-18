@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 09:15:38 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/09 14:31:28 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/18 18:24:05 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Fixed	&Fixed::operator= (const Fixed &obj){
 }
 
 int	Fixed::getRawBits( void ) const{
-	return nb;
+	return (nb);
 }
 
 void Fixed::setRawBits( int const raw ){
