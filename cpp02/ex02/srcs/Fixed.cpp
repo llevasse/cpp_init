@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 09:15:38 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/17 11:13:53 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/18 18:30:42 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ float	Fixed::toFloat( void ) const{
 }
 
 int		Fixed::toInt( void ) const{
-	return nb;
+	return (nb >> fractBits);
 }
 
 Fixed	&Fixed::operator= (const Fixed &obj){
@@ -64,13 +64,13 @@ Fixed	Fixed::operator- (const Fixed &obj){
 
 Fixed	Fixed::operator* (const Fixed &obj){
 	Fixed temp;
-	temp.nb = nb * obj.toInt();
+	temp.nb = nb * obj.toFloat();
 	return (temp);
 }
 
 Fixed	Fixed::operator/ (const Fixed &obj){
 	Fixed temp;
-	temp.nb = nb / obj.toInt();
+	temp.nb = nb / obj.toFloat();
 	return (temp);
 }
 
@@ -142,7 +142,7 @@ std::ostream & operator << (std::ostream &out, const Fixed &obj){
 }
 
 int	Fixed::getRawBits( void ) const{
-	return nb;
+	return (nb);
 }
 
 void Fixed::setRawBits( int const raw ){
