@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 09:15:38 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/18 18:23:51 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/19 13:38:33 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ float	Fixed::toFloat( void ) const{
 }
 
 int		Fixed::toInt( void ) const{
-	return nb;
+	return (nb >> fractBits);
 }
 
 Fixed	&Fixed::operator= (const Fixed &obj){
