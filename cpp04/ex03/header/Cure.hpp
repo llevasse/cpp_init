@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 16:28:10 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/26 17:20:34 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/26 18:13:55 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Cure : public AMateria{
 		Cure& operator=( const Cure &obj);
 		~Cure();
 
-		AMateria* close() const;
+		AMateria* clone() const;
 		void use( ICharacter& target );
 };
 
