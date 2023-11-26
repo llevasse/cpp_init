@@ -18,12 +18,12 @@
 
 class FragTrap : public ClapTrap{
 	public:
-		FragTrap( void );
+		FragTrap();
 		FragTrap( std::string name );
 		FragTrap( FragTrap const &obj);
 		FragTrap	operator= (const FragTrap &obj);
-		void		highFivesGuys( void );
-		~FragTrap( void );
+		void		highFivesGuys();
+		~FragTrap();
 };
 
 #endif

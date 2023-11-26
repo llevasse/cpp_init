@@ -6,13 +6,13 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:51:59 by llevasse          #+#    #+#             */
-/*   Updated: 2023/10/10 16:03:03 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/25 17:50:07 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap( void ){
+ClapTrap::ClapTrap(){
 	std::cout << "ClapTrap default (with name 'Elyse') constructor called!" << std::endl;
 	_name = "Elyse";
 	_hp = 10;
@@ -61,7 +61,11 @@ void	ClapTrap::attack( const std::string& target){
 void	ClapTrap::takeDamage( unsigned int amount ){
 	if (_hp > 0)
 	{
-		std::cout << _name << " takes " << amount << " points of damage" << std::endl;
+		if (_hp <= (int)amount){
+			std::cout << _name << " takes " << _hp << " points of damage and dies" << std::endl;
+		}
+		else
+			std::cout << _name << " takes " << amount << " points of damage" << std::endl;
 		_hp -= amount;
 	}
 	else
@@ -81,6 +85,6 @@ void	ClapTrap::beRepaired( unsigned int amount ){
 		std::cout << _name << " is dead, it can't do anything" << std::endl;
 }
 
-ClapTrap::~ClapTrap( void ){
+ClapTrap::~ClapTrap(){
 	std::cout << "ClapTrap [" << _name << "] destructor called!" << std::endl;
 }

@@ -12,7 +12,7 @@
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap( void ){
+ScavTrap::ScavTrap(){
 	std::cout << "ScavTrap default (with name 'Elyse') constructor called!" << std::endl;
 	_name = "Elyse";
 	_hp = 100;
@@ -46,10 +46,10 @@ ScavTrap ScavTrap::operator= ( ScavTrap const &obj){
 	return (*this);
 }
 
-void	ScavTrap::guardGate( void ){
+void	ScavTrap::guardGate(){
 	std::cout << _name << " is guarding the gate with their life" << std::endl;
 }
 
-ScavTrap::~ScavTrap( void ){
+ScavTrap::~ScavTrap(){
 	std::cout << "ScavTrap [" << _name << "] destructor called!" << std::endl;
 }

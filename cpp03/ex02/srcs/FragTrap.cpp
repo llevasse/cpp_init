@@ -12,7 +12,7 @@
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap( void ){
+FragTrap::FragTrap(){
 	std::cout << "FragTrap default (with name 'Elyse') constructor called!" << std::endl;
 	_name = "Elyse";
 	_hp = 100;
@@ -46,10 +46,10 @@ FragTrap FragTrap::operator= ( FragTrap const &obj){
 	return (*this);
 }
 
-void	FragTrap::highFivesGuys( void ){
+void	FragTrap::highFivesGuys(){
 	std::cout << _name << " is legen- wait for it -dary, LEGEN-DARY, HIGH FIVE GUYS" << std::endl;
 }
 
-FragTrap::~FragTrap( void ){
+FragTrap::~FragTrap(){
 	std::cout << "FragTrap [" << _name << "] destructor called!" << std::endl;
 }
