@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 16:28:10 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/26 16:32:45 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/26 17:20:29 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ class Ice : public AMateria{
 
 		AMateria* close() const;
 		void use( ICharacter& target );
-}
+};
 
 #endif

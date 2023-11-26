@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 16:18:11 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/26 16:38:21 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/26 17:20:40 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ICHARACTER_HPP
 
 #include <iostream>
+#include "AMateria.hpp"
 
 class ICharacter{
 	protected:
@@ -29,6 +30,6 @@ class ICharacter{
 		virtual void equip( AMateria *m) = 0;
 		virtual void unequip( int idx) = 0;
 		virtual void use( int idx, ICharacter& target) = 0;
-}
+};
 
 #endif

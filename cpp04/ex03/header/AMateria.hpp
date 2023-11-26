@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 16:18:11 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/26 16:27:56 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/26 17:23:13 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define AMATERIA_HPP
 
 #include <iostream>
+#include "ICharacter.hpp"
 
 class AMateria{
 	protected:
@@ -29,6 +30,6 @@ class AMateria{
 
 		virtual AMateria* clone() const = 0;
 		virtual void use(ICharacter& target);
-}
+};
 
 #endif
