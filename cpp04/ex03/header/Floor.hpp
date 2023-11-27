@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
+/*   Floor.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/26 16:18:11 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/27 17:26:35 by llevasse         ###   ########.fr       */
+/*   Created: 2023/11/27 17:34:56 by llevasse          #+#    #+#             */
+/*   Updated: 2023/11/27 17:58:43 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IMATERIASOURCE_HPP
-# define IMATERIASOURCE_HPP
+#ifndef FLOOR_HPP
+# define FLOOR_HPP
 
-#include <iostream>
 #include "AMateria.hpp"
 
-class IMateriaSource{
+class Floor {
+	private:
+		AMateria	*_addr;
+		Floor		*_next;
 	public:
-		virtual ~IMateriaSource() {};
+		Floor();
+		Floor(AMateria *addr);
+		Floor(Floor const &obj);
+		Floor& operator = (Floor const &obj);
 
-		virtual void learnMateria( AMateria*) = 0;
-		virtual AMateria* createMateria( std::string const & type) = 0;
+		void	addBack(AMateria *addr);
+		AMateria *getAddr();
+		void	setAddr(AMateria *addr);
+		Floor	*getNext();
+		void	setNext(Floor *addr);
+		void	deleteLast();
+
+		~Floor();
 };
 
 #endif

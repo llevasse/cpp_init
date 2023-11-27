@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 09:04:24 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/27 11:13:44 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/27 17:53:17 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,10 @@ void	MateriaSource::learnMateria( AMateria* materia){
 }
 
 AMateria* MateriaSource::createMateria( std::string const & type){
+	AMateria *tmp;
 	for (int i=0;i<4;i++){
 		if (_slots[i] && _slots[i]->getType() == type){
-			return (_slots[i]->clone());
+			tmp = _slots[i]->clone();
 		}
 	}
 	return (NULL);

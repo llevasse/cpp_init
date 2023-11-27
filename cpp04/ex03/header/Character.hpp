@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 16:18:11 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/27 12:27:33 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/27 17:24:39 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,6 @@
 
 class AMateria;
 
-typedef struct s_floor {
-	struct s_floor	*next;
-	AMateria		*addr;
-}	t_floor ;
 
 class Character : public ICharacter{
 	protected:

@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
+/*   floor.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/26 16:18:11 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/27 17:26:35 by llevasse         ###   ########.fr       */
+/*   Created: 2023/11/27 17:30:24 by llevasse          #+#    #+#             */
+/*   Updated: 2023/11/27 17:31:47 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IMATERIASOURCE_HPP
-# define IMATERIASOURCE_HPP
-
-#include <iostream>
 #include "AMateria.hpp"
 
-class IMateriaSource{
-	public:
-		virtual ~IMateriaSource() {};
+typedef struct s_floor {
+	struct s_floor	*next;
+	AMateria		*addr;
+}	t_floor ;
 
-		virtual void learnMateria( AMateria*) = 0;
-		virtual AMateria* createMateria( std::string const & type) = 0;
-};
-
-#endif
+void	add_back_floor(t_floor **floor, AMateria *addr);
