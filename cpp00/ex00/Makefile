@@ -14,7 +14,7 @@ FLAGS			=	-Wall -Werror -Wextra -std=c++98
 
 all:			$(NAME)
 
-$(NAME):		Makefile $(OBJS)
+$(NAME):		$(OBJS)
 				$(CC) $(FLAGS) $(OBJS) -o $@
 
 %.o:	%.cpp
