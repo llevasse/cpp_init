@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 17:04:08 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/26 18:15:43 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/27 10:33:30 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Cure& Cure::operator= ( Cure const &obj){
 	return (*this);
 }
 
-Cure* Cure::clone() const{
+AMateria* Cure::clone() const{
 	return (new Cure());
 }
 

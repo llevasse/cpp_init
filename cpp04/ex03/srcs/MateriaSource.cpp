@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 09:04:24 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/27 09:45:08 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/27 11:12:10 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ MateriaSource& MateriaSource::operator = ( MateriaSource const &obj){
 		_slots[i] = NULL;
 	if (this != &obj){
 		for (int i=0;i<4;i++)
-			_slots[i] = obj->getSlot(i)->clone();
+			_slots[i] = obj.getSlot(i)->clone();
 		*this = obj;
 	}
 	return (*this);
 }
 
-AMteria* MateriaSource::getSlot(int index){
+AMateria* MateriaSource::getSlot(int index) const{
 	return (_slots[index]);
 }
 
@@ -62,8 +62,8 @@ AMateria* MateriaSource::createMateria( std::string const & type){
 
 MateriaSource::~MateriaSource(){
 	std::cout << "MateriaSource destructor called" << std::endl;
-	for (int i=0;i<4;i++){
+/*	for (int i=0;i<4;i++){
 		if (_slots[i])
 			delete _slots[i];
-	}
+	}*/
 }

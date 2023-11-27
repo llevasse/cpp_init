@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 17:04:08 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/26 18:15:53 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/27 10:33:15 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Ice& Ice::operator= ( Ice const &obj){
 	return (*this);
 }
 
-Ice* Ice::clone() const{
+AMateria* Ice::clone() const{
 	return (new Ice());
 }
 

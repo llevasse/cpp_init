@@ -9,6 +9,7 @@ SRC				=	srcs/main.cpp \
 					srcs/IMateriaSource.cpp \
 					srcs/Ice.cpp \
 					srcs/Cure.cpp \
+					srcs/MateriaSource.cpp \
 					srcs/Character.cpp
 
 OBJS_DIR		=	.OBJS/
