@@ -6,13 +6,16 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 08:39:44 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/27 08:44:07 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/27 09:46:16 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 #include "IMateriaSource.hpp"
+#include "MateriaSource.hpp"
 #include "ICharacter.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 int main(){
 	IMateriaSource* src = new MateriaSource();
