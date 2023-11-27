@@ -8,7 +8,8 @@ SRC				=	srcs/main.cpp \
 					srcs/AMateria.cpp \
 					srcs/IMateriaSource.cpp \
 					srcs/Ice.cpp \
-					srcs/Cure.cpp
+					srcs/Cure.cpp \
+					srcs/Character.cpp
 
 OBJS_DIR		=	.OBJS/
 OBJS			=	$(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
@@ -17,7 +18,9 @@ HEADER_FILE		=	header/AMateria.hpp \
 					header/Ice.hpp \
 					header/Cure.hpp \
 					header/ICharacter.hpp \
-					header/IMateriaSource.hpp
+					header/Character.hpp \
+					header/IMateriaSource.hpp \
+					header/MateriaSource.hpp
 
 INCLUDE			=	-I header/
 

@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 08:39:44 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/27 09:46:16 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/27 10:22:17 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "IMateriaSource.hpp"
 #include "MateriaSource.hpp"
 #include "ICharacter.hpp"
+#include "Character.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"
 
@@ -30,7 +31,7 @@ int main(){
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
 
-	ICharacteur* bob = new Character("bob");
+	ICharacter* bob = new Character("bob");
 
 	me->use(0, *bob);
 	me->use(1, *bob);
