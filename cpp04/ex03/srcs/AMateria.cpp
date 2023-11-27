@@ -13,17 +13,17 @@
 #include "AMateria.hpp"
 
 AMateria::AMateria(){
-	std::cout << "Default AMateria constructor called" << std::endl;
+	std::cout << "Default AMateria \033[32mconstructor\033[0m called" << std::endl;
 	_type = "neutral";
 }
 
 AMateria::AMateria( std::string const & type){
-	std::cout << "AMateria constructor called with type " << type << std::endl;
+	std::cout << "AMateria \033[32mconstructor\033[0m called with type " << type << std::endl;
 	_type = type;
 }
 
 AMateria::AMateria( AMateria const &obj){
-	std::cout << "AMateria copy constructor called" << std::endl;
+	std::cout << "AMateria copy \033[32mconstructor\033[0m called" << std::endl;
 	if (this != &obj)
 		*this = obj;
 }
@@ -48,5 +48,5 @@ void AMateria::use(ICharacter& target){
 }
 
 AMateria::~AMateria(){
-	std::cout << "AMateria destructor called" << std::endl;
+	std::cout << "AMateria \033[31mdestructor\033[0m called" << std::endl;
 }

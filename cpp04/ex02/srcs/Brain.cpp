@@ -13,19 +13,19 @@
 #include "Brain.hpp"
 
 Brain::Brain( void ){
-	std::cout << "Brain default constructor called!" << std::endl;
+	std::cout << "Brain default \033[32mconstructor\033[0m called!" << std::endl;
 	for (int i=0;i<100;i++)
 		ideas[i] = "Empty thoughts";
 }
 
 Brain::Brain( std::string ideas ){
-	std::cout << "Brain constructor called with tought " << ideas << "!" << std::endl;
+	std::cout << "Brain \033[32mconstructor\033[0m called with tought " << ideas << "!" << std::endl;
 	for (int i=0;i<100;i++)
 		this->ideas[i] = ideas;
 }
 
 Brain::Brain( Brain &obj){
-	std::cout << "Brain copy constructor called!" << std::endl;
+	std::cout << "Brain copy \033[32mconstructor\033[0m called!" << std::endl;
 	if (this != &obj)
 		*this = obj;
 }
@@ -51,5 +51,5 @@ void		Brain::setIdea(int id, std::string idea){
 }
 
 Brain::~Brain( void ){
-	std::cout << "Brain destructor called!" << std::endl;
+	std::cout << "Brain \033[31mdestructor\033[0m called!" << std::endl;
 }

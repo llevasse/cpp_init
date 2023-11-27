@@ -13,11 +13,11 @@
 #include "Cat.hpp"
 
 Cat::Cat( void ):Animal("Cat"){
-	std::cout << "Cat default constructor called!" << std::endl;
+	std::cout << "Cat default \033[32mconstructor\033[0m called!" << std::endl;
 }
 
 Cat::Cat( Cat const &obj){
-	std::cout << "Cat copy constructor called!" << std::endl;
+	std::cout << "Cat copy \033[32mconstructor\033[0m called!" << std::endl;
 	if (this != &obj)
 		*this = obj;
 }
@@ -30,7 +30,7 @@ Cat Cat::operator= ( Cat const &obj){
 }
 
 Cat::~Cat( void ){
-	std::cout << "Cat destructor is called!" << std::endl;
+	std::cout << "Cat \033[31mdestructor\033[0m is called!" << std::endl;
 }
 
 void		Cat::makeSound( void ) const{

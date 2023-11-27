@@ -13,17 +13,17 @@
 #include "Animal.hpp"
 
 Animal::Animal( void ){
-	std::cout << "Animal default constructor called!" << std::endl;
+	std::cout << "Animal default \033[32mconstructor\033[0m called!" << std::endl;
 	type = "unknown";
 }
 
 Animal::Animal( std::string type ){
-	std::cout << "Animal constructor called with type " << type << "!" << std::endl;
+	std::cout << "Animal \033[32mconstructor\033[0m called with type " << type << "!" << std::endl;
 	this->type = type;
 }
 
 Animal::Animal( Animal const &obj){
-	std::cout << "Animal copy constructor called!" << std::endl;
+	std::cout << "Animal copy \033[32mconstructor\033[0m called!" << std::endl;
 	if (this != &obj)
 		*this = obj;
 }
@@ -60,5 +60,5 @@ void		Animal::setIdea(int id, std::string idea) const {
 }
 
 Animal::~Animal( void ){
-	std::cout << "Animal [" << type << "] destructor called!" << std::endl;
+	std::cout << "Animal [" << type << "] \033[31mdestructor\033[0m called!" << std::endl;
 }

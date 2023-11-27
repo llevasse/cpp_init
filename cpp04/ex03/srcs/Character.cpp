@@ -13,19 +13,19 @@
 #include "Character.hpp"
 
 Character::Character(){
-	std::cout << "Character default constructor called" << std::endl;
+	std::cout << "Character default \033[32mconstructor\033[0m called" << std::endl;
 	_name = "Elyse";
 	for (int i=0;i<4;i++) {_slots[i] = NULL;}
 }
 
 Character::Character( std::string const & name){
-	std::cout << "Character constructor called with name " << name << std::endl;
+	std::cout << "Character \033[32mconstructor\033[0m called with name " << name << std::endl;
 	_name = name;
 	for (int i=0;i<4;i++) {_slots[i] = NULL;}
 }
 
 Character::Character( Character const &obj){
-	std::cout << "Character copy constructor called" << std::endl;
+	std::cout << "Character copy \033[32mconstructor\033[0m called" << std::endl;
 	if (this != &obj)
 		*this = obj;
 }
@@ -68,7 +68,7 @@ void Character::use( int idx, ICharacter& target){
 }
 
 Character::~Character(){
-	std::cout << "Character destructor called" << std::endl;
+	std::cout << "Character \033[31mdestructor\033[0m called" << std::endl;
 	for (int i=0;i<4;i++){
 		if (_slots[i])
 			delete _slots[i];

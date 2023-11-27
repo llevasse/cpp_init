@@ -13,13 +13,13 @@
 #include "MateriaSource.hpp"
 
 MateriaSource::MateriaSource(){
-	std::cout << "MateriaSource default constructor called" << std::endl;
+	std::cout << "MateriaSource default \033[32mconstructor\033[0m called" << std::endl;
 	for (int i=0;i<4;i++)
 		_slots[i] = NULL;
 }
 
 MateriaSource::MateriaSource( MateriaSource const &obj){
-	std::cout << "MateriaSource copy constructor called" << std::endl;
+	std::cout << "MateriaSource copy \033[32mconstructor\033[0m called" << std::endl;
 	for (int i=0;i<4;i++)
 		_slots[i] = NULL;
 	if (this != &obj)
@@ -61,7 +61,7 @@ AMateria* MateriaSource::createMateria( std::string const & type){
 }
 
 MateriaSource::~MateriaSource(){
-	std::cout << "MateriaSource destructor called" << std::endl;
+	std::cout << "MateriaSource \033[31mdestructor\033[0m called" << std::endl;
 	for (int i=0;i<4;i++){
 		if (_slots[i])
 			delete _slots[i];

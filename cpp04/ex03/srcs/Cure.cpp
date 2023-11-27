@@ -13,12 +13,12 @@
 #include "Cure.hpp"
 
 Cure::Cure(){
-	std::cout << "Default Cure constructor called" << std::endl;
+	std::cout << "Default Cure \033[32mconstructor\033[0m called" << std::endl;
 	_type = "cure";
 }
 
 Cure::Cure( Cure const &obj){
-	std::cout << "Cure copy constructor called" << std::endl;
+	std::cout << "Cure copy \033[32mconstructor\033[0m called" << std::endl;
 	if (this != &obj)
 		*this = obj;
 }
@@ -39,5 +39,5 @@ void Cure::use(ICharacter& target){
 }
 
 Cure::~Cure(){
-	std::cout << "Cure destructor called" << std::endl;
+	std::cout << "Cure \033[31mdestructor\033[0m called" << std::endl;
 }

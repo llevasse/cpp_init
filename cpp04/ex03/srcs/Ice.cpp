@@ -13,12 +13,12 @@
 #include "Ice.hpp"
 
 Ice::Ice(){
-	std::cout << "Default Ice constructor called" << std::endl;
+	std::cout << "Default Ice \033[32mconstructor\033[0m called" << std::endl;
 	_type = "ice";
 }
 
 Ice::Ice( Ice const &obj){
-	std::cout << "Ice copy constructor called" << std::endl;
+	std::cout << "Ice copy \033[32mconstructor\033[0m called" << std::endl;
 	if (this != &obj)
 		*this = obj;
 }
@@ -39,5 +39,5 @@ void Ice::use(ICharacter& target){
 }
 
 Ice::~Ice(){
-	std::cout << "Ice destructor called" << std::endl;
+	std::cout << "Ice \033[31mdestructor\033[0m called" << std::endl;
 }

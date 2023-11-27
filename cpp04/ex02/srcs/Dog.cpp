@@ -13,12 +13,12 @@
 #include "Dog.hpp"
 
 Dog::Dog( void ):Animal("Dog"){
-	std::cout << "Dog default constructor called!" << std::endl;
+	std::cout << "Dog default \033[32mconstructor\033[0m called!" << std::endl;
 	brain = new Brain();
 }
 
 Dog::Dog( Dog const &obj){
-	std::cout << "Dog copy constructor called!" << std::endl;
+	std::cout << "Dog copy \033[32mconstructor\033[0m called!" << std::endl;
 	if (this != &obj)
 		*this = obj;
 }
@@ -34,7 +34,7 @@ Dog Dog::operator= ( Dog const &obj){
 
 Dog::~Dog( void ){
 	delete brain;
-	std::cout << "Dog destructor is called!" << std::endl;
+	std::cout << "Dog \033[31mdestructor\033[0m is called!" << std::endl;
 }
 
 void		Dog::makeSound( void ) const{

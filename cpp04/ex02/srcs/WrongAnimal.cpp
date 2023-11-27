@@ -13,17 +13,17 @@
 #include "WrongAnimal.hpp"
 
 WrongAnimal::WrongAnimal( void ){
-	std::cout << "WrongAnimal default constructor called!" << std::endl;
+	std::cout << "WrongAnimal default \033[32mconstructor\033[0m called!" << std::endl;
 	type = "unknown";
 }
 
 WrongAnimal::WrongAnimal( std::string type ){
-	std::cout << "WrongAnimal constructor called with type " << type << "!" << std::endl;
+	std::cout << "WrongAnimal \033[32mconstructor\033[0m called with type " << type << "!" << std::endl;
 	this->type = type;
 }
 
 WrongAnimal::WrongAnimal( WrongAnimal const &obj){
-	std::cout << "WrongAnimal copy constructor called!" << std::endl;
+	std::cout << "WrongAnimal copy \033[32mconstructor\033[0m called!" << std::endl;
 	if (this != &obj)
 		*this = obj;
 }
@@ -48,5 +48,5 @@ void		WrongAnimal::makeSound( void ) const {
 }
 
 WrongAnimal::~WrongAnimal( void ){
-	std::cout << "WrongAnimal [" << type << "] destructor called!" << std::endl;
+	std::cout << "WrongAnimal [" << type << "] \033[31mdestructor\033[0m called!" << std::endl;
 }
