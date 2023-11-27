@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 17:38:58 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/27 18:01:30 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/27 18:26:00 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,20 @@ void	Floor::setNext(Floor *addr){
 }
 
 void Floor::deleteLast(){
-	if (_next)
+	if (_next){
 		_next->deleteLast();
-	delete _addr;
-	delete this;
+		delete _next;
+		_next = NULL;
+	}
+	if (_addr){
+		delete _addr;
+		_addr = NULL;
+	}
 }
 
 Floor::~Floor(){
 	std::cout << "Floor \033[31mdestructor\033[0m called" << std::endl;
+	if (_next){
+		this->deleteLast();
+	}
 }

@@ -28,7 +28,7 @@ HEADER_FILE		=	header/AMateria.hpp \
 INCLUDE			=	-I header/
 
 # ----
-FLAGS			=	-Wall -Werror -Wextra -std=c++98
+FLAGS			=	-Wall -Werror -Wextra -g -std=c++98
 DEPS_FLAGS		=	-MMD -MP
 
 #---RULES----------------------------------------
