@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 08:39:44 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/27 10:22:17 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/27 12:21:51 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int main(){
 
 	me->use(0, *bob);
 	me->use(1, *bob);
+	me->unequip(0);
+	me->use(0, *bob);
 
 	delete bob;
 	delete me;
