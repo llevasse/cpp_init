@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/26 16:18:11 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/27 08:49:57 by llevasse         ###   ########.fr       */
+/*   Created: 2023/11/27 09:04:24 by llevasse          #+#    #+#             */
+/*   Updated: 2023/11/27 09:08:31 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IMATERIASOURCE_HPP
-# define IMATERIASOURCE_HPP
+#include "MateriaSource.hpp"
 
-#include <iostream>
-#include "AMateria.hpp"
+MateriaSource::MateriaSource(){
+	std::cout << "MateriaSource default constructor called" << std::endl;
+	for (int i=0;i<4;i++)
+		_slots[i] = NULL;
+}
 
-class IMateriaSource{
-	public:
-		virtual ~IMateriaSource() {};
-
-		virtual void learnMateria( AMateria*) = 0;
-		virtual AMateria* createMateria( std::string const & type) = 0;
-};
-
-#endif
+MateriaSource::MateriaSource( MateriaSource const &obj){
+	std::cout << "MateriaSource copy constructor called" << std::endl;
+	for (int i=0;i<4;i++)
+		_slots[i] = NULL;
+	if (this != &obj)
+		*this = obj;
+}

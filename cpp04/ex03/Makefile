@@ -5,7 +5,10 @@ RM				=	rm -rf
 
 #---CUB_VAR---------------------------------------
 SRC				=	srcs/main.cpp \
-					srcs/AMateria.cpp
+					srcs/AMateria.cpp \
+					srcs/IMateriaSource.cpp \
+					srcs/Ice.cpp \
+					srcs/Cure.cpp
 
 OBJS_DIR		=	.OBJS/
 OBJS			=	$(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
