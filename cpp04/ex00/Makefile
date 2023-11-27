@@ -23,17 +23,19 @@ INCLUDE			=	-I header/
 
 # ----
 FLAGS			=	-Wall -Werror -Wextra -std=c++98
+DEPS_FLAGS		=	-MMD -MP
 
 #---RULES----------------------------------------
 
 all:			$(NAME)
 
-$(NAME):		$(OBJS_DIR) Makefile $(HEADER_FILE) $(OBJS)
+$(NAME):		$(OBJS_DIR) $(HEADER_FILE) $(OBJS)
 				$(CC) $(FLAGS) $(INCLUDE) $(OBJS) -o $@
 
+-include $(DEPS)
 $(OBJS_DIR)%.o:	%.cpp $(HEADER_FILE)
 				mkdir -p $(shell dirname $@)
-				$(CC) $(FLAGS) $(INCLUDE) -c $< -o $@
+				$(CC) $(FLAGS) $(DEPS_FLAGS) $(INCLUDE) -c $< -o $@
 
 $(OBJS_DIR):
 				mkdir -p $(OBJS_DIR)
