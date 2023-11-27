@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:09:13 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/27 10:18:51 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/27 10:24:48 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,12 @@ AMteria* Character::getSlot(int index){
 
 std::string const & getName() const{
 	return (_name);
+}
+
+Character::~Character(){
+	std::cout << "Character destructor called" << std::endl;
+	for (int i=0;i<4;i++){
+		if (_slots[i])
+			delete _slots[i];
+	}
 }
