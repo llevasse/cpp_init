@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 09:04:24 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/27 11:12:10 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/27 11:13:44 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ AMateria* MateriaSource::createMateria( std::string const & type){
 
 MateriaSource::~MateriaSource(){
 	std::cout << "MateriaSource destructor called" << std::endl;
-/*	for (int i=0;i<4;i++){
+	for (int i=0;i<4;i++){
 		if (_slots[i])
 			delete _slots[i];
-	}*/
+	}
 }

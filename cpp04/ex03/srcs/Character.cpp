@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:09:13 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/27 10:45:10 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/27 11:13:36 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ void Character::use( int idx, ICharacter& target){
 
 Character::~Character(){
 	std::cout << "Character destructor called" << std::endl;
-	/*for (int i=0;i<4;i++){
+	for (int i=0;i<4;i++){
 		if (_slots[i])
 			delete _slots[i];
-	}*/
+	}
 }
