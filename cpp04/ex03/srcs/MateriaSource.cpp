@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 09:04:24 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/27 18:29:33 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/27 18:30:11 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 MateriaSource::MateriaSource(){
 	std::cout << "MateriaSource default \033[32mconstructor\033[0m called" << std::endl;
-	floor = new Floor();
+	_floor = new Floor();
 	for (int i=0;i<4;i++)
 		_slots[i] = NULL;
 }
 
 MateriaSource::MateriaSource( MateriaSource const &obj){
 	std::cout << "MateriaSource copy \033[32mconstructor\033[0m called" << std::endl;
-	floor = new Floor();
+	_floor = new Floor();
 	for (int i=0;i<4;i++)
 		_slots[i] = NULL;
 	if (this != &obj)
@@ -30,7 +30,7 @@ MateriaSource::MateriaSource( MateriaSource const &obj){
 
 MateriaSource& MateriaSource::operator = ( MateriaSource const &obj){
 	std::cout << "MateriaSource copy assignment called" << std::endl;
-	floor = new Floor();
+	_floor = new Floor();
 	AMateria	*tmp;
 	for (int i=0;i<4;i++)
 		_slots[i] = NULL;
@@ -38,7 +38,7 @@ MateriaSource& MateriaSource::operator = ( MateriaSource const &obj){
 		for (int i=0;i<4;i++){
 			tmp = obj.getSlot(i)->clone();
 			_slots[i] = tmp;
-			floor->addBack(tmp);
+			_floor->addBack(tmp);
 		}
 		*this = obj;
 	}
@@ -52,7 +52,7 @@ AMateria* MateriaSource::getSlot(int index) const{
 void	MateriaSource::learnMateria( AMateria* materia){
 	for (int i=0;i<4;i++){
 		if (_slots[i] == NULL){
-			floor->addBack(materia);
+			_floor->addBack(materia);
 			_slots[i] = materia;
 			break ;
 		}
@@ -64,7 +64,7 @@ AMateria* MateriaSource::createMateria( std::string const & type){
 	for (int i=0;i<4;i++){
 		if (_slots[i] && _slots[i]->getType() == type){
 			tmp = _slots[i]->clone();
-			floor->addBack(tmp);
+			_floor->addBack(tmp);
 			return (tmp);
 		}
 	}
@@ -72,6 +72,6 @@ AMateria* MateriaSource::createMateria( std::string const & type){
 }
 
 MateriaSource::~MateriaSource(){
-	delete floor;
+	delete _floor;
 	std::cout << "MateriaSource \033[31mdestructor\033[0m called" << std::endl;
 }

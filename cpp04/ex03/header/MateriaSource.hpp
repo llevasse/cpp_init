@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 16:18:11 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/27 18:04:42 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/27 18:29:56 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class MateriaSource : public IMateriaSource{
 	private :
 		AMateria* _slots[4];
-		Floor	*floor;
+		Floor	*_floor;
 	public:
 		MateriaSource();
 		MateriaSource( MateriaSource const &obj);
