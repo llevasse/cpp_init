@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:52:35 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/27 21:23:28 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/28 14:40:19 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,18 @@ int	main(){
 	std::cout << std::endl;
 	animals[3]->setIdea(1, "I want a stick !");
 	std::cout << animals[3]->getIdea(1) << std::endl;
-	std::cout << animals[4]->getIdea(1) << std::endl;
+	std::cout << animals[1]->getIdea(1) << std::endl;
 	std::cout << std::endl;
 
 	// show deep copy
-	*animals[4] = *animals[3];
+	*animals[1] = *animals[3];
 	std::cout << animals[3]->getIdea(1) << std::endl;
-	std::cout << animals[4]->getIdea(1) << std::endl;
+	std::cout << animals[1]->getIdea(1) << std::endl;
 	std::cout << std::endl;
 
 	animals[3]->setIdea(1, "I don't want a stick !");
 	std::cout << animals[3]->getIdea(1) << std::endl;
-	std::cout << animals[4]->getIdea(1) << std::endl;
+	std::cout << animals[1]->getIdea(1) << std::endl;
 
 	std::cout << std::endl;
 

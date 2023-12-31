@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 11:15:32 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/12 14:48:07 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/28 14:35:44 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 class Animal{
 	protected:
 		std::string	type;
-		Brain *brain;
 	public:
 		Animal( void );
 		Animal( std::string name );
@@ -29,8 +28,8 @@ class Animal{
 		void				setType(std::string type);
 		std::string			getType()	const;
 		virtual void		makeSound() const;
-		void				setIdea(int id, std::string idea) const;
-		std::string			getIdea(int id) const;
+		virtual void		setIdea(int id, std::string idea) const;
+		virtual std::string	getIdea(int id) const;
 };
 
 #endif

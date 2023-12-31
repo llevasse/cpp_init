@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:51:59 by llevasse          #+#    #+#             */
-/*   Updated: 2023/11/10 19:20:08 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/11/28 14:39:35 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,19 @@ Dog Dog::operator= ( Dog const &obj){
 	std::cout << "Dog copy assignment operator called!" << std::endl;
 	if (this != &obj){
 		this->type = obj.type;
-		this->brain = obj.brain;
+		for (int i=0;i<100;i++)
+			brain->setIdea(i, obj.brain->getIdea(i));
+//		this->brain = obj.brain;
 	}
 	return (*this);
+}
+
+std::string	Dog::getIdea( int id ) const {
+	return (brain->getIdea(id));
+}
+
+void		Dog::setIdea(int id, std::string idea) const {
+	brain->setIdea(id, idea);
 }
 
 Dog::~Dog( void ){
