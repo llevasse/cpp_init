@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 20:10:40 by llevasse          #+#    #+#             */
-/*   Updated: 2024/01/01 13:41:41 by llevasse         ###   ########.fr       */
+/*   Updated: 2024/01/01 13:43:05 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ std::string	Bureaucrat::getName() const{
 }
 
 std::ostream &operator << (std::ostream &out, const Bureaucrat &obj){
-	out << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ".\n";
+	out << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ".";
 	return (out);
 }
 
