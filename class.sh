@@ -48,7 +48,7 @@ $1::~$1( void ){
 }
 
 std::ostream &operator << (std::ostream &out, const $1 &obj){
-	out << $1;
+	out << \"$1\";
 	return (out);
 }" > $cppname
 )
