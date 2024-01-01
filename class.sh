@@ -18,6 +18,7 @@ class $1{
 		~$1( void );
 };
 
+std::ostream &operator << (std::ostream &out, const $1 &obj);
 #endif" > "$1.hpp"
 )
 
@@ -44,5 +45,10 @@ $1 $1::operator= ( $1 const &obj){
 
 $1::~$1( void ){
 	std::cout << "$1 \033[31mdestructor\033[0m called!" << std::endl;
+}
+
+std::ostream &operator << (std::ostream &out, const $1 &obj){
+	out << $1;
+	return (out);
 }" > $cppname
 )
