@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 01:09:50 by llevasse          #+#    #+#             */
-/*   Updated: 2024/01/01 15:31:10 by llevasse         ###   ########.fr       */
+/*   Updated: 2024/01/01 16:02:42 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,14 @@
 #include "Form.hpp"
 
 int main(){
-		
+
 	try{
-		Form a;
+		Form a("valid", 3, 3);
+		Bureaucrat Elise("Elise", 4);
+		Elise.signForm(a);
 	}
 	catch(const std::exception &e){
 		std::cerr << e.what() << std::endl;
 	}
-	try{
-		Form a("invalid", 0, 150);
-	}
-	catch(const std::exception &e){
-		std::cerr << e.what() << std::endl;
-	}
-	try{
-		Form a("invalid", 1, 151);
-	}
-	catch(const std::exception &e){
-		std::cerr << e.what() << std::endl;
-	}
+
 }

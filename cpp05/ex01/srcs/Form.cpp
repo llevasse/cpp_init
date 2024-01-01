@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 14:53:24 by llevasse          #+#    #+#             */
-/*   Updated: 2024/01/01 15:29:39 by llevasse         ###   ########.fr       */
+/*   Updated: 2024/01/01 16:02:58 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Form::Form( Form const &obj): _name(obj._name), _signed(0), _signGrade(obj._sign
 		*this = obj;
 }
 
-Form Form::operator= ( Form const &obj){
+Form &Form::operator= ( Form const &obj){
 	std::cout << "Form copy assignment operator called!" << std::endl;
 	if (this != &obj){
 		this->_signed = obj._signed;
@@ -69,11 +69,18 @@ int Form::getExecGrade( void ) const {
 	return (_execGrade);
 }
 
+void	Form::beSigned(Bureaucrat Elise){
+	if (_signGrade >= Elise.getGrade())
+		this->_signed = true;
+	else
+		throw (GradeTooLowException());
+}
+
 std::ostream &operator << (std::ostream &out, const Form &obj){
 	out << "Form : " << std::endl;
 	out << "\tname : " << obj.getName() << std::endl;
 	out << "\tsigned : " << obj.getSigned() << std::endl;
 	out << "\tsign grade : " << obj.getSignGrade() << std::endl;
-	out << "\texec grade : " << obj.getExecGrade() << std::endl;
+	out << "\texec grade : " << obj.getExecGrade();
 	return (out);
 }
