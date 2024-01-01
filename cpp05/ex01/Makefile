@@ -5,12 +5,14 @@ RM				=	rm -rf
 
 #---CUB_VAR---------------------------------------
 SRC				=	./srcs/Bureaucrat.cpp \
+					./srcs/Form.cpp \
 					./srcs/main.cpp
 
 OBJS_DIR		=	.OBJS/
 OBJS			=	$(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
 
-HEADER_FILE		=	header/Bureaucrat.hpp
+HEADER_FILE		=	./header/Bureaucrat.hpp \
+					./header/Form.hpp
 INCLUDE			=	-I header/
 
 # ----

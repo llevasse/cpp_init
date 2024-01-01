@@ -16,10 +16,10 @@ class Form{
 		Form operator= ( Form const &obj );
 		~Form( void );
 
-		const std::string	getName();
-		bool				getSigned();
-		const int			getSignGrade();
-		const int			getExecGrade();
+		const std::string	getName() const;
+		bool				getSigned() const;
+		int					getSignGrade() const;
+		int					getExecGrade() const;
 
 		class GradeTooHighException: public std::exception{
 			public:
