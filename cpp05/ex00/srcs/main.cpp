@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 01:09:50 by llevasse          #+#    #+#             */
-/*   Updated: 2024/01/01 01:14:01 by llevasse         ###   ########.fr       */
+/*   Updated: 2024/01/01 13:29:16 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main(){
 
 	try{
 		Bureaucrat recruit(1);
-		std::cout << recruit.getGrade() << std::endl;
+		std::cout << recruit << std::endl;
 		recruit.incrementGrade();
 	}
 	catch(const std::exception &e){
