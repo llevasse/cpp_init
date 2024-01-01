@@ -4,12 +4,12 @@ CC				=	c++
 RM				=	rm -rf
 
 #---CUB_VAR---------------------------------------
-SRC				=	./srcs/
+SRC				=	./srcs/Bureaucrat.cpp
 
 OBJS_DIR		=	.OBJS/
 OBJS			=	$(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
 
-HEADER_FILE		=	header/
+HEADER_FILE		=	header/Bureaucrat.hpp
 INCLUDE			=	-I header/
 
 # ----

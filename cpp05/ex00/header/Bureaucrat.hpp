@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 20:08:36 by llevasse          #+#    #+#             */
-/*   Updated: 2023/12/31 20:16:04 by llevasse         ###   ########.fr       */
+/*   Updated: 2024/01/01 01:03:40 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,29 @@
 
 class Bureaucrat{
 	private:
-		str::string _name;
+		const std::string	_name;
+		int					_grade;
 	public:
 		Bureaucrat( void );
-		Bureaucrat( std::string name );
-		Bureaucrat( Animal const &obj );
-		Bureaucrat operator= ( Animal const &obj );
+		Bureaucrat( const std::string name, int grade);
+		Bureaucrat( Bureaucrat const &obj );
+		Bureaucrat operator= ( Bureaucrat const &obj );
 		~Bureaucrat( void );
+
+		int		getGrade();
+		void	setGrade(int grade);
+
+		void	incrementGrade();
+		void	decrementGrade();
+
+		class GradeTooHighException: public std::exception{
+			public:
+				virtual const char	*what( void ) const throw();
+		};
+		class GradeTooLowException: public std::exception{
+			public:
+				virtual const char	*what( void ) const throw();
+		};
 };
 
 #endif
