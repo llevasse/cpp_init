@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 20:08:36 by llevasse          #+#    #+#             */
-/*   Updated: 2024/01/01 01:03:40 by llevasse         ###   ########.fr       */
+/*   Updated: 2024/01/01 01:14:30 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Bureaucrat{
 	public:
 		Bureaucrat( void );
 		Bureaucrat( const std::string name, int grade);
+		Bureaucrat( int grade);
 		Bureaucrat( Bureaucrat const &obj );
 		Bureaucrat operator= ( Bureaucrat const &obj );
 		~Bureaucrat( void );

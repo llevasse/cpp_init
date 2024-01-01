@@ -4,7 +4,8 @@ CC				=	c++
 RM				=	rm -rf
 
 #---CUB_VAR---------------------------------------
-SRC				=	./srcs/Bureaucrat.cpp
+SRC				=	./srcs/Bureaucrat.cpp \
+					./srcs/main.cpp
 
 OBJS_DIR		=	.OBJS/
 OBJS			=	$(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))

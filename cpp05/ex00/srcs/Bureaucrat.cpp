@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 20:10:40 by llevasse          #+#    #+#             */
-/*   Updated: 2024/01/01 01:07:31 by llevasse         ###   ########.fr       */
+/*   Updated: 2024/01/01 01:15:15 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,15 @@ Bureaucrat::Bureaucrat( void ): _name("recruit"), _grade(150){
 
 Bureaucrat::Bureaucrat( const std::string name, int grade ): _name(name){
 	std::cout << "Bureaucrat \033[32mconstructor\033[0m called with name " << name << "!" << std::endl;
+	if (grade < 1)
+		throw (GradeTooHighException());
+	if (grade > 150)
+		throw (GradeTooLowException());
+	this->_grade = grade;
+}
+
+Bureaucrat::Bureaucrat( int grade ): _name("recruit"){
+	std::cout << "Bureaucrat \033[32mconstructor\033[0m called with grade " << grade << "!" << std::endl;
 	if (grade < 1)
 		throw (GradeTooHighException());
 	if (grade > 150)
