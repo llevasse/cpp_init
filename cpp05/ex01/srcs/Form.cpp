@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 14:53:24 by llevasse          #+#    #+#             */
-/*   Updated: 2024/01/01 16:02:58 by llevasse         ###   ########.fr       */
+/*   Updated: 2024/01/02 22:40:24 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int Form::getExecGrade( void ) const {
 	return (_execGrade);
 }
 
-void	Form::beSigned(Bureaucrat Elise){
+void	Form::beSigned(Bureaucrat &Elise){
 	if (_signGrade >= Elise.getGrade())
 		this->_signed = true;
 	else

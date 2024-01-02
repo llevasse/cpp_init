@@ -1,5 +1,5 @@
 #---COMMON_VAR-----------------------------------
-NAME			=	Bureaucrat
+NAME			=	Form
 CC				=	c++
 RM				=	rm -rf
 
