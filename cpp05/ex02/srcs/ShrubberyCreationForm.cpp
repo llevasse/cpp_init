@@ -1,10 +1,10 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm( void ):AForm("RobotomyRequestForm",145, 137), _target("Rose"){
+RobotomyRequestForm::RobotomyRequestForm( void ):AForm("RobotomyRequestForm",72, 45), _target("Mentally ill guy"){
 	std::cout << "RobotomyRequestForm default \033[32mconstructor\033[0m called!" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm( std::string target ): AForm("RobotomyRequestForm",145, 137), _target(target){
+RobotomyRequestForm::RobotomyRequestForm( std::string target ): AForm("RobotomyRequestForm",72, 45), _target(target){
 	std::cout << "RobotomyRequestForm \033[32mconstructor\033[0m called!" << std::endl;
 }
 
@@ -34,6 +34,13 @@ void	RobotomyRequestForm::execute(Bureaucrat const &executor) const{
 		throw (NotSignedException());
 	if (executor.getGrade() > this->getExecGrade())
 		throw (GradeTooHighException());
+	std::cout << "*Drilling noises heard*" << std::endl;
+	std::srand(std::time(NULL));
+	if (std::rand() % 2)
+		std::cout << "Robotomy successfull :D" << std::endl;
+	else
+		std::cout << "Robotomy failed :(" << std::endl;
+
 }
 
 std::ostream &operator << (std::ostream &out, const RobotomyRequestForm &obj){
