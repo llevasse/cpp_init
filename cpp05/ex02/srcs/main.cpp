@@ -11,23 +11,23 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 int main(){
 
 	try{
-		Form a("valid", 3, 3);
+		AForm a("valid", 3, 3);
 		Bureaucrat Elise("Elise", 3);
-		Elise.signForm(a);
+		Elise.signAForm(a);
 	}
 	catch(const std::exception &e){
 		std::cerr << e.what() << std::endl;
 	}
 
 	try{
-		Form a("valid", 3, 3);
+		AForm a("valid", 3, 3);
 		Bureaucrat Elise("Elise", 5);
-		Elise.signForm(a);
+		Elise.signAForm(a);
 	}
 	catch(const std::exception &e){
 		std::cerr << e.what() << std::endl;
