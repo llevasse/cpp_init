@@ -6,13 +6,15 @@ RM				=	rm -rf
 #---CUB_VAR---------------------------------------
 SRC				=	./srcs/Bureaucrat.cpp \
 					./srcs/AForm.cpp \
+					./srcs/ShrubberyCreationForm.cpp \
 					./srcs/main.cpp
 
 OBJS_DIR		=	.OBJS/
 OBJS			=	$(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
 
 HEADER_FILE		=	./header/Bureaucrat.hpp \
-					./header/AForm.hpp
+					./header/AForm.hpp \
+					./header/ShrubberyCreationForm.hpp
 INCLUDE			=	-I header/
 
 # ----

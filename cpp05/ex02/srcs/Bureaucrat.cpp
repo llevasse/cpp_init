@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 20:10:40 by llevasse          #+#    #+#             */
-/*   Updated: 2024/01/01 16:01:18 by llevasse         ###   ########.fr       */
+/*   Updated: 2024/01/03 17:58:46 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void Bureaucrat::decrementGrade(){
 	_grade++;
 }
 
-void Bureaucrat::signAForm(AForm &form){
+void Bureaucrat::signForm(AForm &form){
 	try {
 		form.beSigned(*this);
 		std::cout << _name << " signed " << form.getName() << std::endl;
