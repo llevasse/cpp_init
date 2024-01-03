@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 20:08:36 by llevasse          #+#    #+#             */
-/*   Updated: 2024/01/03 17:59:07 by llevasse         ###   ########.fr       */
+/*   Updated: 2024/01/03 22:32:30 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ class Bureaucrat{
 		void	decrementGrade( void );
 
 		void	signForm(AForm &form);
+		void	executeForm(AForm const &form);
 
 		std::string	getName( void ) const;
 

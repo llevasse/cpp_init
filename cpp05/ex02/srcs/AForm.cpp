@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 14:53:24 by llevasse          #+#    #+#             */
-/*   Updated: 2024/01/02 22:40:24 by llevasse         ###   ########.fr       */
+/*   Updated: 2024/01/03 22:29:22 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,10 @@ const char *AForm::GradeTooHighException::what( void ) const throw(){
 
 const char *AForm::GradeTooLowException::what( void ) const throw(){
 	return ("Grade too low");
+}
+
+const char *AForm::NotSignedException::what( void ) const throw(){
+	return ("Not signed");
 }
 
 const std::string AForm::getName( void ) const{

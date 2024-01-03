@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 20:10:40 by llevasse          #+#    #+#             */
-/*   Updated: 2024/01/03 17:58:46 by llevasse         ###   ########.fr       */
+/*   Updated: 2024/01/03 22:34:15 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,14 @@ void Bureaucrat::signForm(AForm &form){
 	}
 }
 
+void Bureaucrat::executeForm(AForm const &form){
+	try {
+		form.execute(*this);
+	}
+	catch(const std::exception &e){
+		std::cerr << _name << " could't execute " << form.getName() << " because " << e.what() << std::endl;
+	}
+}
 const char *Bureaucrat::GradeTooHighException::what( void ) const throw(){
 	return ("Grade too high");
 }
