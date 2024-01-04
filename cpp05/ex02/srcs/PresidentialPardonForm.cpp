@@ -8,7 +8,7 @@ PresidentialPardonForm::PresidentialPardonForm( std::string target ): AForm("Pre
 	std::cout << "PresidentialPardonForm \033[32mconstructor\033[0m called!" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const &obj){
+PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const &obj):AForm(obj.getName(), obj.getSignGrade(), obj.getExecGrade()), _target(obj.getTarget()){
 	std::cout << "PresidentialPardonForm copy \033[32mconstructor\033[0m called!" << std::endl;
 	if (this != &obj)
 		*this = obj;
@@ -43,6 +43,6 @@ std::ostream &operator << (std::ostream &out, const PresidentialPardonForm &obj)
 	out << "\tsigned : " << obj.getSigned() << std::endl;
 	out << "\tsign grade : " << obj.getSignGrade() << std::endl;
 	out << "\texec grade : " << obj.getExecGrade() << std::endl;
-	out << "\ttarget : << " << obj.getTarget();
+	out << "\ttarget : " << obj.getTarget();
 	return (out);
 }
