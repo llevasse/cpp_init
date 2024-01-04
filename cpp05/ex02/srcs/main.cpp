@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 01:09:50 by llevasse          #+#    #+#             */
-/*   Updated: 2024/01/04 21:05:56 by llevasse         ###   ########.fr       */
+/*   Updated: 2024/01/04 21:12:12 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ int main(){
 		Elise.signForm(a);
 		std::cout << std::endl;
 		Elise.executeForm(a);
-		std::cout << std::endl;
-		ShrubberyCreationForm b(a);
+		ShrubberyCreationForm b = a;
 		std::cout << b << std::endl;
 	}
 	catch(const std::exception &e){
@@ -34,13 +33,15 @@ int main(){
 		std::cerr << std::endl;
 	}
 	try{
-		RobotomyRequestForm a;
+		RobotomyRequestForm a("bob");
 		Bureaucrat Elise("Elise", 3);
 		std::cout << std::endl;
 		Elise.signForm(a);
 		std::cout << std::endl;
 		Elise.executeForm(a);
 		std::cout << std::endl;
+		RobotomyRequestForm b = a;
+		std::cout << b << std::endl;
 	}
 	catch(const std::exception &e){
 		std::cerr << e.what() << std::endl;

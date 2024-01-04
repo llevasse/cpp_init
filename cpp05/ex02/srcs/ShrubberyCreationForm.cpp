@@ -6,7 +6,6 @@ ShrubberyCreationForm::ShrubberyCreationForm( void ):AForm("ShrubberyCreationFor
 
 ShrubberyCreationForm::ShrubberyCreationForm( std::string target ): AForm("ShrubberyCreationForm",145, 137), _target(target){
 	std::cout << "ShrubberyCreationForm \033[32mconstructor\033[0m called!" << std::endl;
-	std::cout << *this << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const &obj):AForm(obj.getName(), obj.getSignGrade(), obj.getExecGrade()), _target(obj.getTarget()){

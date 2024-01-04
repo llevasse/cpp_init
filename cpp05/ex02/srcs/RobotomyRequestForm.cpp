@@ -8,7 +8,7 @@ RobotomyRequestForm::RobotomyRequestForm( std::string target ): AForm("RobotomyR
 	std::cout << "RobotomyRequestForm \033[32mconstructor\033[0m called!" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const &obj){
+RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const &obj):AForm(obj.getName(), obj.getSignGrade(), obj.getExecGrade()), _target(obj.getTarget()){
 	std::cout << "RobotomyRequestForm copy \033[32mconstructor\033[0m called!" << std::endl;
 	if (this != &obj)
 		*this = obj;
@@ -39,7 +39,7 @@ void	RobotomyRequestForm::execute(Bureaucrat const &executor) const{
 	if (std::rand() % 2)
 		std::cout << "Robotomy successfull :D" << std::endl;
 	else
-		std::cout << "Robotomy failed :(" << std::endl;
+		std::cout << "Robotomy failed, " << this->getTarget() << " died :(" << std::endl;
 
 }
 
@@ -49,6 +49,6 @@ std::ostream &operator << (std::ostream &out, const RobotomyRequestForm &obj){
 	out << "\tsigned : " << obj.getSigned() << std::endl;
 	out << "\tsign grade : " << obj.getSignGrade() << std::endl;
 	out << "\texec grade : " << obj.getExecGrade() << std::endl;
-	out << "\ttarget : << " << obj.getTarget();
+	out << "\ttarget : " << obj.getTarget();
 	return (out);
 }
