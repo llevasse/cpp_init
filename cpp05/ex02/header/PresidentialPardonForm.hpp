@@ -5,6 +5,8 @@
 # include "AForm.hpp"
 
 class PresidentialPardonForm : public AForm{
+	private:
+		std::string	_target;
 	public:
 		PresidentialPardonForm( void );
 		PresidentialPardonForm( std::string target );
@@ -13,6 +15,7 @@ class PresidentialPardonForm : public AForm{
 		~PresidentialPardonForm( void );
 		void	execute(Bureaucrat const &executor) const;
 
+		std::string	getTarget( void ) const;
 };
 
 std::ostream &operator << (std::ostream &out, const PresidentialPardonForm &obj);
