@@ -6,17 +6,17 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 14:53:24 by llevasse          #+#    #+#             */
-/*   Updated: 2024/01/03 22:29:22 by llevasse         ###   ########.fr       */
+/*   Updated: 2024/01/04 14:40:51 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-AForm::AForm( void ): _name("basic"), _signed(0), _signGrade(150), _execGrade(150){
+AForm::AForm( void ): _name("basic"), _target("Elise"), _signed(0), _signGrade(150), _execGrade(150){
 	std::cout << "AForm default \033[32mconstructor\033[0m called!" << std::endl;
 }
 
-AForm::AForm( std::string name, int signGrade, int execGrade ): _name(name), _signed(0), _signGrade(signGrade), _execGrade(execGrade){
+AForm::AForm( std::string name, int signGrade, int execGrade, std::string target ): _name(name), _target(target), _signed(0), _signGrade(signGrade), _execGrade(execGrade){
 	std::cout << "AForm \033[32mconstructor\033[0m called!" << std::endl;
 	if (signGrade < 1)
 		throw (GradeTooHighException());
@@ -27,7 +27,7 @@ AForm::AForm( std::string name, int signGrade, int execGrade ): _name(name), _si
 	if (execGrade > 150)
 		throw (GradeTooLowException());
 }
-AForm::AForm( AForm const &obj): _name(obj._name), _signed(0), _signGrade(obj._signGrade), _execGrade(obj._execGrade){
+AForm::AForm( AForm const &obj): _name(obj._name), _target(obj._target), _signed(0), _signGrade(obj._signGrade), _execGrade(obj._execGrade){
 	std::cout << "AForm copy \033[32mconstructor\033[0m called!" << std::endl;
 	if (this != &obj)
 		*this = obj;
@@ -71,6 +71,10 @@ int	AForm::getSignGrade( void ) const {
 
 int AForm::getExecGrade( void ) const {
 	return (_execGrade);
+}
+
+std::string AForm::getTarget( void ) const{
+	return (_target);
 }
 
 void	AForm::beSigned(Bureaucrat &Elise){

@@ -1,10 +1,10 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm( void ):AForm("RobotomyRequestForm",72, 45), _target("Mentally ill guy"){
+RobotomyRequestForm::RobotomyRequestForm( void ):AForm("RobotomyRequestForm",72, 45, _target"Mentally ill guy"){
 	std::cout << "RobotomyRequestForm default \033[32mconstructor\033[0m called!" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm( std::string target ): AForm("RobotomyRequestForm",72, 45), _target(target){
+RobotomyRequestForm::RobotomyRequestForm( std::string target ): AForm("RobotomyRequestForm",72, 45, target){
 	std::cout << "RobotomyRequestForm \033[32mconstructor\033[0m called!" << std::endl;
 }
 
@@ -23,10 +23,6 @@ RobotomyRequestForm &RobotomyRequestForm::operator= ( RobotomyRequestForm const 
 
 RobotomyRequestForm::~RobotomyRequestForm( void ){
 	std::cout << "RobotomyRequestForm \033[31mdestructor\033[0m called!" << std::endl;
-}
-
-std::string RobotomyRequestForm::getTarget( void ) const{
-	return (_target);
 }
 
 void	RobotomyRequestForm::execute(Bureaucrat const &executor) const{

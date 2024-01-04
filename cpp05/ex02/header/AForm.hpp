@@ -15,7 +15,7 @@ class AForm{
 	public:
 		AForm( void );
 		AForm( AForm const &obj );
-		AForm( std::string name, int signGrade, int execGrade );
+		AForm( std::string name, int signGrade, int execGrade, std::string target );
 		AForm &operator= ( AForm const &obj );
 		~AForm( void );
 
@@ -23,6 +23,7 @@ class AForm{
 		bool				getSigned() const;
 		int					getSignGrade() const;
 		int					getExecGrade() const;
+		std::string			getTarget( void ) const;
 
 		void			beSigned(Bureaucrat &Elise);
 		virtual void	execute(Bureaucrat const &executor) const = 0;
