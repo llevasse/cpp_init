@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 20:08:36 by llevasse          #+#    #+#             */
-/*   Updated: 2024/01/01 13:41:27 by llevasse         ###   ########.fr       */
+/*   Updated: 2024/01/11 14:07:33 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
+# include <stdexcept>
 
 class Bureaucrat{
 	private:
@@ -24,7 +25,7 @@ class Bureaucrat{
 		Bureaucrat( const std::string name, int grade);
 		Bureaucrat( int grade);
 		Bureaucrat( Bureaucrat const &obj );
-		Bureaucrat operator= ( Bureaucrat const &obj );
+		Bureaucrat& operator= ( Bureaucrat const &obj );
 		~Bureaucrat( void );
 
 		int		getGrade( void ) const;
