@@ -1,5 +1,5 @@
 #---COMMON_VAR-----------------------------------
-NAME			=	28B
+NAME			=	Interns
 CC				=	c++
 RM				=	rm -rf
 
@@ -9,6 +9,7 @@ SRC				=	./srcs/Bureaucrat.cpp \
 					./srcs/ShrubberyCreationForm.cpp \
 					./srcs/RobotomyRequestForm.cpp \
 					./srcs/PresidentialPardonForm.cpp \
+					./srcs/Intern.cpp \
 					./srcs/main.cpp
 
 OBJS_DIR		=	.OBJS/
@@ -18,7 +19,8 @@ HEADER_FILE		=	./header/Bureaucrat.hpp \
 					./header/AForm.hpp \
 					./header/ShrubberyCreationForm.hpp \
 					./header/RobotomyRequestForm.hpp \
-					./header/PresidentialPardonForm.hpp
+					./header/PresidentialPardonForm.hpp \
+					./header/Intern.hpp
 INCLUDE			=	-I header/
 
 # ----
