@@ -6,12 +6,13 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 01:09:50 by llevasse          #+#    #+#             */
-/*   Updated: 2024/01/04 21:14:56 by llevasse         ###   ########.fr       */
+/*   Updated: 2024/01/11 11:35:25 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "Intern.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
@@ -19,44 +20,30 @@
 int main(){
 
 	try{
-		ShrubberyCreationForm a("me");
+		Intern Sinead;
 		Bureaucrat Elise("Elise", 3);
+		AForm *form = Sinead.makeForm("shrubbery creation", "me");
 		std::cout << std::endl;
-		Elise.signForm(a);
+		Elise.signForm(*form);
 		std::cout << std::endl;
-		Elise.executeForm(a);
-		ShrubberyCreationForm b = a;
-		std::cout << b << std::endl;
+		Elise.executeForm(*form);
+		std::cout << *form << std::endl;
+		delete form;
 	}
 	catch(const std::exception &e){
 		std::cerr << e.what() << std::endl;
 		std::cerr << std::endl;
 	}
 	try{
-		RobotomyRequestForm a("bob");
+		Intern Sinead;
 		Bureaucrat Elise("Elise", 3);
+		AForm *form = Sinead.makeForm("endOfTheWorld", "me");
 		std::cout << std::endl;
-		Elise.signForm(a);
+		Elise.signForm(*form);
 		std::cout << std::endl;
-		Elise.executeForm(a);
-		std::cout << std::endl;
-		RobotomyRequestForm b = a;
-		std::cout << b << std::endl;
-	}
-	catch(const std::exception &e){
-		std::cerr << e.what() << std::endl;
-		std::cerr << std::endl;
-	}
-	try{
-		PresidentialPardonForm a("Edward");
-		Bureaucrat Elise("Elise", 3);
-		std::cout << std::endl;
-		Elise.signForm(a);
-		std::cout << std::endl;
-		Elise.executeForm(a);
-		std::cout << std::endl;
-		PresidentialPardonForm b = a;
-		std::cout << b << std::endl;
+		Elise.executeForm(*form);
+		std::cout << *form << std::endl;
+		delete form;
 	}
 	catch(const std::exception &e){
 		std::cerr << e.what() << std::endl;
