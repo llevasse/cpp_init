@@ -12,6 +12,7 @@ ScalarConverter::ScalarConverter( ScalarConverter const &obj){
 
 ScalarConverter &ScalarConverter::operator= ( ScalarConverter const &obj){
 	std::cout << "ScalarConverter copy assignment operator called!" << std::endl;
+	(void)obj;
 	return (*this);
 }
 
@@ -21,5 +22,20 @@ ScalarConverter::~ScalarConverter( void ){
 
 std::ostream &operator << (std::ostream &out, const ScalarConverter &obj){
 	out << "ScalarConverter";
+	(void)obj;
 	return (out);
+}
+
+void	printChar( char c ){
+	std::cout << "char : '" << c << "'" << std::endl;
+	std::cout << "int : " << static_cast<int>(c) << "" << std::endl;
+	std::cout << "float : " << static_cast<float>(c) << "f" << std::endl;
+	std::cout << "double : " << static_cast<double>(c) << "" << std::endl;
+}
+
+
+void ScalarConverter::convert( std::string input ){
+	if ((input[0] < '0' || input[0] > '9') && isprint(input[0])){
+		printChar(input[0]);
+	}
 }
