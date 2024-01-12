@@ -2,7 +2,7 @@
 # define SCALARCONVERTER_HPP
 
 # include <iostream>
-
+# include <stdlib.h>
 class ScalarConverter{
 	public:
 		ScalarConverter( void );
