@@ -34,6 +34,15 @@ void	printChar( char c ){
 	std::cout << "double : " << static_cast<double>(c) << std::endl << std::endl;
 }
 
+int		isInt( std::string input ){
+	int	n=input.length();
+	if (isdigit(input[0]))
+		return (1);
+	if (n > 1 && (input[0] == '-' || input[0] == '+') && isdigit(input[1]))
+		return (1);
+	return (0);
+}
+
 void	printInt( std::string input ){
 	std::cout << "Int type passed" << std::endl;
 	int nb = atoi(input.c_str());
@@ -46,37 +55,76 @@ void	printInt( std::string input ){
 	std::cout << "double : " << static_cast<double>(nb) << std::endl << std::endl;
 }
 
+int		isDouble( std::string input ){
+	if (input.find(".") != std::string::npos && input.find("f") == std::string::npos)
+		return (1);
+	if (input == "-inf" || input == "+inf" || input == "nan")
+		return (1);
+	return (0);
+}
+
 void	printDouble( std::string input ){
 	std::cout << "Double type passed" << std::endl;
 	double nb = atof(input.c_str());
-	if (isprint(nb))
-		std::cout << "char : '" << static_cast<char>(nb) << "'" << std::endl;
-	else
+	if (input == "-inf" || input == "+inf" || input == "nan"){
 		std::cout << "char : *unprintable*" << std::endl;
-	std::cout << "int : " << static_cast<int>(nb) << std::endl;
-	std::cout << "float : " << static_cast<float>(nb) << "f" << std::endl;
-	std::cout << "double : " << nb << std::endl << std::endl;
+		std::cout << "int : *unprintable*" << std::endl;
+		std::cout << "float : " << input + "f" << std::endl;
+		std::cout << "double : " << input << std::endl << std::endl;
+	}
+	else {
+		if (isprint(nb))
+			std::cout << "char : '" << static_cast<char>(nb) << "'" << std::endl;
+		else
+			std::cout << "char : *unprintable*" << std::endl;
+		std::cout << "int : " << static_cast<int>(nb) << std::endl;
+		std::cout << "float : " << static_cast<float>(nb) << "f" << std::endl;
+		std::cout << "double : " << nb << std::endl << std::endl;
+	}
+}
+
+int		isFloat( std::string input ){
+	if (input.length() > 1 && (isdigit(input[0]) || isdigit(input[1])) && input.find("f") != std::string::npos)
+		return (1);
+	if (input == "-inff" || input == "+inff" || input == "nanf")
+		return (1);
+	return (0);
 }
 
 void	printFloat( std::string input ){
 	std::cout << "Float type passed" << std::endl;
 	float nb = atof(input.c_str());
-	if (isprint(nb))
-		std::cout << "char : '" << static_cast<char>(nb) << "'" << std::endl;
-	else
+	
+	if (input == "-inff" || input == "+inff" || input == "nanf"){
 		std::cout << "char : *unprintable*" << std::endl;
-	std::cout << "int : " << static_cast<int>(nb) << std::endl;
-	std::cout << "float : " << nb << "f" << std::endl;
-	std::cout << "double : " << static_cast<double>(nb) << std::endl << std::endl;
+		std::cout << "int : *unprintable*" << std::endl;
+		std::cout << "float : " << input << std::endl;
+		if (input == "-inff")
+			std::cout << "double : -inf" << std::endl << std::endl;
+		if (input == "+inff")
+			std::cout << "double : +inf" << std::endl << std::endl;
+		if (input == "nanf")
+			std::cout << "double : nan" << std::endl << std::endl;
+	}
+	else {
+		if (isprint(nb))
+			std::cout << "char : '" << static_cast<char>(nb) << "'" << std::endl;
+		else
+			std::cout << "char : *unprintable*" << std::endl;
+		std::cout << "int : " << static_cast<int>(nb) << std::endl;
+		std::cout << "float : " << nb << "f" << std::endl;
+		std::cout << "double : " << static_cast<double>(nb) << std::endl << std::endl;
+	}
 }
 
 
 void ScalarConverter::convert( std::string input ){
-	int is_float	= (input.find("f") != std::string::npos);
-	int is_double	= (input.find(".") != std::string::npos);
-	if ((input[0] < '0' || input[0] > '9') && isprint(input[0]))
+	int is_float	= isFloat(input);
+	int is_double	= isDouble(input);
+	int	is_int		= isInt(input);
+	if (!isdigit(input[0]) && isprint(input[0]) && !is_int && !is_double && !is_float)
 		printChar(input[0]);
-	else if (input[0] >= '0' && input[0] <= '9' && !is_double && !is_float)
+	else if (is_int && !is_double && !is_float)
 		printInt(input);
 	else if (is_double && !is_float)
 		printDouble(input);
