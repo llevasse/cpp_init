@@ -1,6 +1,7 @@
 #include "ScalarConverter.hpp"
 
 int	main(int argc, char **argv){
-	ScalarConverter::convert(argv[argc-1]);
+	for (int i=1;i<argc;i++)
+		ScalarConverter::convert(argv[i]);
 }
 
