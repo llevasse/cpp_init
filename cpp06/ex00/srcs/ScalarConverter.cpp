@@ -44,13 +44,25 @@ void	printDouble( std::string input ){
 	std::cout << "double : " << nb << std::endl;
 }
 
+void	printFloat( std::string input ){
+	float nb = atof(input.c_str());
+	if (isprint(nb))
+		std::cout << "char : '" << static_cast<char>(nb) << "'" << std::endl;
+	else
+		std::cout << "char : *unprintable*" << std::endl;
+	std::cout << "int : " << static_cast<int>(nb) << std::endl;
+	std::cout << "float : " << nb << "f" << std::endl;
+	std::cout << "double : " << static_cast<double>(nb) << std::endl;
+}
+
 
 void ScalarConverter::convert( std::string input ){
 	int is_float	= (input.find("f") != std::string::npos);
 	int is_double	= (input.find(".") != std::string::npos);
-	if ((input[0] < '0' || input[0] > '9') && isprint(input[0])){
+	if ((input[0] < '0' || input[0] > '9') && isprint(input[0]))
 		printChar(input[0]);
-	}
 	else if (is_double && !is_float)
 		printDouble(input);
+	else if (is_float)
+		printFloat(input);
 }
