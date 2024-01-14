@@ -11,7 +11,7 @@ class Serialization{
 		Serialization( void );
 		Serialization( Serialization const &obj );
 		Serialization &operator= ( Serialization const &obj );
-		~Serialization( void );
+		virtual ~Serialization( void ) = 0;
 
 		static uintptr_t serialize(Data* ptr);
 		static Data* deserialize(uintptr_t raw);
