@@ -4,12 +4,17 @@ CC				=	c++
 RM				=	rm -rf
 
 #---CUB_VAR---------------------------------------
-SRC				=	./srcs/main.cpp
+SRC				=	./srcs/main.cpp \
+					./srcs/Identify.cpp
 
 OBJS_DIR		=	.OBJS/
 OBJS			=	$(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
 
-HEADER_FILE		=	
+HEADER_FILE		=	./header/Base.hpp \
+					./header/A.hpp \
+					./header/B.hpp \
+					./header/C.hpp \
+					./header/Identify.hpp
 INCLUDE			=	-I header/
 
 # ----
