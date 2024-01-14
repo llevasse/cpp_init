@@ -40,6 +40,7 @@ $1::$1( $1 const &obj){
 
 $1 &$1::operator= ( $1 const &obj){
 	std::cout << \"$1 copy assignment operator called!\" << std::endl;
+	(void)obj;
 	return (*this);
 }
 
@@ -49,6 +50,7 @@ $1::~$1( void ){
 
 std::ostream &operator << (std::ostream &out, const $1 &obj){
 	out << \"$1\";
+	(void)obj;
 	return (out);
 }" > $cppname
 )
