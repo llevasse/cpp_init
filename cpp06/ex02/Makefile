@@ -5,6 +5,10 @@ RM				=	rm -rf
 
 #---CUB_VAR---------------------------------------
 SRC				=	./srcs/main.cpp \
+					./srcs/Base.cpp \
+					./srcs/A.cpp \
+					./srcs/B.cpp \
+					./srcs/C.cpp \
 					./srcs/Identify.cpp
 
 OBJS_DIR		=	.OBJS/
