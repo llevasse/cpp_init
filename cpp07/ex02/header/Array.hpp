@@ -20,10 +20,12 @@ class Array{
 					return ("Out of bound\n");
 				};
 		};
-		Array &operator[] ( unsigned int n ) {
+		T &operator[] ( unsigned int n ) {
 			if (n < 0 || n >= _size)
 				throw OutOfBoundException();
+			return (_array[n]);
 		}
+		unsigned int size(){ return _size;};
 		~Array( void ) { delete _array; };
 };
 #endif
