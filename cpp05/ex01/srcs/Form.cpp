@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 14:53:24 by llevasse          #+#    #+#             */
-/*   Updated: 2024/01/17 18:43:20 by llevasse         ###   ########.fr       */
+/*   Updated: 2024/01/17 18:46:02 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,10 @@ const char *Form::GradeTooLowException::what( void ) const throw(){
 	return ("Grade too low");
 }
 
+const char *Form::AlreadySignedException::what( void ) const throw(){
+	return ("Already signed");
+}
+
 const std::string Form::getName( void ) const{
 	return (_name);
 }
@@ -76,6 +80,8 @@ int Form::getExecGrade( void ) const {
 }
 
 void	Form::beSigned(Bureaucrat &Elise){
+	if (this->_signed)
+		throw (AlreadySignedException());
 	if (_signGrade >= Elise.getGrade())
 		this->_signed = true;
 	else
