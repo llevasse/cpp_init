@@ -6,18 +6,20 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 20:10:40 by llevasse          #+#    #+#             */
-/*   Updated: 2024/01/01 16:01:18 by llevasse         ###   ########.fr       */
+/*   Updated: 2024/01/17 18:42:42 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat( void ): _name("recruit"), _grade(150){
-	std::cout << "Bureaucrat default \033[32mconstructor\033[0m called!" << std::endl;
+	if (!MUTE)
+		std::cout << "Bureaucrat default \033[32mconstructor\033[0m called!" << std::endl;
 }
 
 Bureaucrat::Bureaucrat( const std::string name, int grade ): _name(name){
-	std::cout << "Bureaucrat \033[32mconstructor\033[0m called with name " << name << "!" << std::endl;
+	if (!MUTE)
+		std::cout << "Bureaucrat \033[32mconstructor\033[0m called with name " << name << "!" << std::endl;
 	if (grade < 1)
 		throw (GradeTooHighException());
 	if (grade > 150)
@@ -26,7 +28,8 @@ Bureaucrat::Bureaucrat( const std::string name, int grade ): _name(name){
 }
 
 Bureaucrat::Bureaucrat( int grade ): _name("recruit"){
-	std::cout << "Bureaucrat \033[32mconstructor\033[0m called with grade " << grade << "!" << std::endl;
+	if (!MUTE)
+		std::cout << "Bureaucrat \033[32mconstructor\033[0m called with grade " << grade << "!" << std::endl;
 	if (grade < 1)
 		throw (GradeTooHighException());
 	if (grade > 150)
@@ -35,12 +38,14 @@ Bureaucrat::Bureaucrat( int grade ): _name("recruit"){
 }
 
 Bureaucrat::Bureaucrat( Bureaucrat const &obj): _name(obj._name){
-	std::cout << "Bureaucrat copy \033[32mconstructor\033[0m called!" << std::endl;
+	if (!MUTE)
+		std::cout << "Bureaucrat copy \033[32mconstructor\033[0m called!" << std::endl;
 	*this = obj;
 }
 
 Bureaucrat &Bureaucrat::operator= ( Bureaucrat const &obj){
-	std::cout << "Bureaucrat copy assignment operator called!" << std::endl;
+	if (!MUTE)
+		std::cout << "Bureaucrat copy assignment operator called!" << std::endl;
 	this->_grade = obj._grade;
 	return (*this);
 }
@@ -89,5 +94,6 @@ std::ostream &operator << (std::ostream &out, const Bureaucrat &obj){
 }
 
 Bureaucrat::~Bureaucrat( void ){
-	std::cout << "Bureaucrat [" << _name << "] \033[31mdestructor\033[0m called!" << std::endl;
+	if (!MUTE)
+		std::cout << "Bureaucrat [" << _name << "] \033[31mdestructor\033[0m called!" << std::endl;
 }

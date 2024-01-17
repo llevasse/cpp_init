@@ -4,6 +4,10 @@
 # include <iostream>
 # include <Bureaucrat.hpp>
 
+# ifndef MUTE
+#  define MUTE 0
+# endif
+
 class Bureaucrat;
 class Form{
 	private:
