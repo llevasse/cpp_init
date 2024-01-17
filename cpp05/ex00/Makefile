@@ -32,6 +32,9 @@ $(OBJS_DIR)%.o:	%.cpp $(HEADER_FILE)
 $(OBJS_DIR):
 				mkdir -p $(OBJS_DIR)
 
+mute:			FLAGS += -D MUTE=1
+mute:			re
+
 clean:
 				$(RM) $(OBJS_DIR)
 

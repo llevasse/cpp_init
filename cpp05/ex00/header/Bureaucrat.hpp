@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 20:08:36 by llevasse          #+#    #+#             */
-/*   Updated: 2024/01/11 14:07:33 by llevasse         ###   ########.fr       */
+/*   Updated: 2024/01/17 18:24:50 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include <iostream>
 # include <stdexcept>
+
+# ifndef MUTE
+#  define	MUTE 0
+# endif
 
 class Bureaucrat{
 	private:
