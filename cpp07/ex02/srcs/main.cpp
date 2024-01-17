@@ -17,8 +17,17 @@ int main(int, char**)
     }
     //SCOPE
     {
-//        Array<int> tmp = numbers;
-//        Array<int> test(tmp);
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
+		for (int i = 0; i < MAX_VAL; i++){
+			numbers[i]++;
+			if (numbers[i] == tmp[i] || test[i] == numbers[i])
+	        {
+    	        std::cerr << "same value where it shouldn't" << std::endl;
+        	    return 1;
+	        }
+			numbers[i]--;
+		}
     }
 
     for (int i = 0; i < MAX_VAL; i++)

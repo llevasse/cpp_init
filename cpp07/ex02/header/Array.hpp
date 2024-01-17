@@ -11,8 +11,32 @@ class Array{
 	public:
 		Array( void ){ _array = new T[0]; _size=0; };
 		Array(unsigned int n) { _array = new T[n]; _size = n;}
-		Array( Array const &obj );
-		Array &operator= ( Array const &obj );
+
+		Array( Array const &obj ){
+			if (this != &obj){
+				this->_size = obj.size();
+				this->_array = new T[this->_size];
+				for (unsigned int i=0;i<this->_size;i++)
+					this->_array[i] = obj[i];
+			}
+		}
+		Array( Array &obj ){
+			if (this != &obj){
+				this->_size = obj.size();
+				this->_array = new T[this->_size];
+				for (unsigned int i=0;i<this->_size;i++)
+					this->_array[i] = obj[i];
+			}
+		}
+		Array &operator= ( Array const &obj ){
+			if (this != &obj){
+				this->_size = obj.size();
+				this->_array = new T[this->_size];
+				for (unsigned int i=0;i<this->_size;i++)
+					this->_array[i] = obj[i];
+			}	
+			return (*this);
+		}
 
 		class OutOfBoundException: public std::exception{
 			public:
@@ -25,7 +49,7 @@ class Array{
 				throw OutOfBoundException();
 			return (_array[n]);
 		}
-		unsigned int size(){ return _size;};
+		unsigned int size() const{ return _size;};
 		~Array( void ) { delete _array; };
 };
 #endif
