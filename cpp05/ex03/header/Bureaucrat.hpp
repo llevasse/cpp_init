@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 20:08:36 by llevasse          #+#    #+#             */
-/*   Updated: 2024/01/03 22:32:30 by llevasse         ###   ########.fr       */
+/*   Updated: 2024/01/17 19:22:10 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include <iostream>
 # include <AForm.hpp>
+
+# ifndef MUTE
+#  define MUTE 0
+# endif
 
 class AForm;
 class Bureaucrat{

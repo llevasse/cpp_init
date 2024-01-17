@@ -1,28 +1,33 @@
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm( void ):AForm("RobotomyRequestForm",72, 45), _target("Mentally ill guy"){
-	std::cout << "RobotomyRequestForm default \033[32mconstructor\033[0m called!" << std::endl;
+	if (!MUTE)
+		std::cout << "RobotomyRequestForm default \033[32mconstructor\033[0m called!" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm( std::string target ): AForm("RobotomyRequestForm",72, 45), _target(target){
-	std::cout << "RobotomyRequestForm \033[32mconstructor\033[0m called!" << std::endl;
+	if (!MUTE)
+		std::cout << "RobotomyRequestForm \033[32mconstructor\033[0m called!" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const &obj):AForm(obj.getName(), obj.getSignGrade(), obj.getExecGrade()), _target(obj.getTarget()){
-	std::cout << "RobotomyRequestForm copy \033[32mconstructor\033[0m called!" << std::endl;
+	if (!MUTE)
+		std::cout << "RobotomyRequestForm copy \033[32mconstructor\033[0m called!" << std::endl;
 	if (this != &obj)
 		*this = obj;
 }
 
 RobotomyRequestForm &RobotomyRequestForm::operator= ( RobotomyRequestForm const &obj){
-	std::cout << "RobotomyRequestForm copy assignment operator called!" << std::endl;
+	if (!MUTE)
+		std::cout << "RobotomyRequestForm copy assignment operator called!" << std::endl;
 	if (this != &obj)
 		this->_target = obj._target;
 	return (*this);
 }
 
 RobotomyRequestForm::~RobotomyRequestForm( void ){
-	std::cout << "RobotomyRequestForm \033[31mdestructor\033[0m called!" << std::endl;
+	if (!MUTE)
+		std::cout << "RobotomyRequestForm \033[31mdestructor\033[0m called!" << std::endl;
 }
 
 std::string RobotomyRequestForm::getTarget( void ) const{

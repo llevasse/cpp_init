@@ -1,23 +1,27 @@
 #include "Intern.hpp"
 
 Intern::Intern( void ){
-	std::cout << "Intern default \033[32mconstructor\033[0m called!" << std::endl;
+	if (!MUTE)
+		std::cout << "Intern default \033[32mconstructor\033[0m called!" << std::endl;
 }
 
 Intern::Intern( Intern const &obj){
-	std::cout << "Intern copy \033[32mconstructor\033[0m called!" << std::endl;
+	if (!MUTE)
+		std::cout << "Intern copy \033[32mconstructor\033[0m called!" << std::endl;
 	if (this != &obj)
 		*this = obj;
 }
 
 Intern &Intern::operator= ( Intern const &obj){
-	std::cout << "Intern copy assignment operator called!" << std::endl;
+	if (!MUTE)
+		std::cout << "Intern copy assignment operator called!" << std::endl;
 	(void)obj;
 	return (*this);
 }
 
 Intern::~Intern( void ){
-	std::cout << "Intern \033[31mdestructor\033[0m called!" << std::endl;
+	if (!MUTE)
+		std::cout << "Intern \033[31mdestructor\033[0m called!" << std::endl;
 }
 
 AForm *newShrubbery(std::string target){
@@ -38,7 +42,8 @@ AForm *Intern::makeForm( std::string name, std::string target ){
 
 	for (int i=0;i<3;i++){
 		if (forms[i] == name){
-			std::cout << "Intern creates " << name << std::endl;
+			if (!MUTE)
+		std::cout << "Intern creates " << name << std::endl;
 			return (ptr[i](target));
 		}
 	}

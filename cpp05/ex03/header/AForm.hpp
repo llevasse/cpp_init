@@ -4,6 +4,10 @@
 # include <iostream>
 # include <Bureaucrat.hpp>
 
+# ifndef MUTE
+#  define MUTE 0
+# endif
+
 class Bureaucrat;
 class AForm{
 	private:
@@ -36,6 +40,10 @@ class AForm{
 				virtual const char	*what( void ) const throw();
 		};
 		class NotSignedException: public std::exception{
+			public:
+				virtual const char	*what( void ) const throw();
+		};
+		class AlreadySignedException: public std::exception{
 			public:
 				virtual const char	*what( void ) const throw();
 		};
