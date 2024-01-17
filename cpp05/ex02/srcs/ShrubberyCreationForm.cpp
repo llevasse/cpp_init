@@ -1,28 +1,33 @@
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm( void ):AForm("ShrubberyCreationForm",145, 137), _target("Rose"){
-	std::cout << "ShrubberyCreationForm default \033[32mconstructor\033[0m called!" << std::endl;
+	if (!MUTE)
+		std::cout << "ShrubberyCreationForm default \033[32mconstructor\033[0m called!" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm( std::string target ): AForm("ShrubberyCreationForm",145, 137), _target(target){
-	std::cout << "ShrubberyCreationForm \033[32mconstructor\033[0m called!" << std::endl;
+	if (!MUTE)
+		std::cout << "ShrubberyCreationForm \033[32mconstructor\033[0m called!" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const &obj):AForm(obj.getName(), obj.getSignGrade(), obj.getExecGrade()), _target(obj.getTarget()){
-	std::cout << "ShrubberyCreationForm copy \033[32mconstructor\033[0m called!" << std::endl;
+	if (!MUTE)
+		std::cout << "ShrubberyCreationForm copy \033[32mconstructor\033[0m called!" << std::endl;
 	if (this != &obj)
 		*this = obj;
 }
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator= ( ShrubberyCreationForm const &obj){
-	std::cout << "ShrubberyCreationForm copy assignment operator called!" << std::endl;
+	if (!MUTE)
+		std::cout << "ShrubberyCreationForm copy assignment operator called!" << std::endl;
 	if (this != &obj)
 		this->_target = obj._target;
 	return (*this);
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm( void ){
-	std::cout << "ShrubberyCreationForm \033[31mdestructor\033[0m called!" << std::endl;
+	if (!MUTE)
+		std::cout << "ShrubberyCreationForm \033[31mdestructor\033[0m called!" << std::endl;
 }
 
 std::string ShrubberyCreationForm::getTarget( void ) const{

@@ -6,18 +6,20 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 14:53:24 by llevasse          #+#    #+#             */
-/*   Updated: 2024/01/03 22:29:22 by llevasse         ###   ########.fr       */
+/*   Updated: 2024/01/17 19:26:20 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
 AForm::AForm( void ): _name("basic"), _signed(0), _signGrade(150), _execGrade(150){
-	std::cout << "AForm default \033[32mconstructor\033[0m called!" << std::endl;
+	if (!MUTE)
+		std::cout << "AForm default \033[32mconstructor\033[0m called!" << std::endl;
 }
 
 AForm::AForm( std::string name, int signGrade, int execGrade ): _name(name), _signed(0), _signGrade(signGrade), _execGrade(execGrade){
-	std::cout << "AForm \033[32mconstructor\033[0m called!" << std::endl;
+	if (!MUTE)
+		std::cout << "AForm \033[32mconstructor\033[0m called!" << std::endl;
 	if (signGrade < 1)
 		throw (GradeTooHighException());
 	if (signGrade > 150)
@@ -28,13 +30,15 @@ AForm::AForm( std::string name, int signGrade, int execGrade ): _name(name), _si
 		throw (GradeTooLowException());
 }
 AForm::AForm( AForm const &obj): _name(obj._name), _signed(0), _signGrade(obj._signGrade), _execGrade(obj._execGrade){
-	std::cout << "AForm copy \033[32mconstructor\033[0m called!" << std::endl;
+	if (!MUTE)
+		std::cout << "AForm copy \033[32mconstructor\033[0m called!" << std::endl;
 	if (this != &obj)
 		*this = obj;
 }
 
 AForm &AForm::operator= ( AForm const &obj){
-	std::cout << "AForm copy assignment operator called!" << std::endl;
+	if (!MUTE)
+		std::cout << "AForm copy assignment operator called!" << std::endl;
 	if (this != &obj){
 		this->_signed = obj._signed;
 	}
@@ -42,7 +46,8 @@ AForm &AForm::operator= ( AForm const &obj){
 }
 
 AForm::~AForm( void ){
-	std::cout << "AForm \033[31mdestructor\033[0m called!" << std::endl;
+	if (!MUTE)
+		std::cout << "AForm \033[31mdestructor\033[0m called!" << std::endl;
 }
 
 const char *AForm::GradeTooHighException::what( void ) const throw(){
@@ -55,6 +60,10 @@ const char *AForm::GradeTooLowException::what( void ) const throw(){
 
 const char *AForm::NotSignedException::what( void ) const throw(){
 	return ("Not signed");
+}
+
+const char *AForm::AlreadySignedException::what( void ) const throw(){
+	return ("Already signed");
 }
 
 const std::string AForm::getName( void ) const{
@@ -74,6 +83,8 @@ int AForm::getExecGrade( void ) const {
 }
 
 void	AForm::beSigned(Bureaucrat &Elise){
+	if (this->_signed)
+		throw (AlreadySignedException());
 	if (_signGrade >= Elise.getGrade())
 		this->_signed = true;
 	else
