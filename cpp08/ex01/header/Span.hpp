@@ -2,6 +2,7 @@
 # define SPAN_HPP
 
 # include <iostream>
+# include <vector>
 # include <stdexcept>
 
 # ifndef MUTE
@@ -10,8 +11,8 @@
 
 class Span{
 	private:
-		unsigned int	_size;
-		vector<int>		_vec;
+		unsigned int			_size;
+		std::vector<int>		_vec;
 	public:
 		Span( void );
 		Span( unsigned int n );
@@ -19,8 +20,12 @@ class Span{
 		Span &operator= ( Span const &obj );
 
 		void	addNumber( int nb );
+		void	addNumber( std::vector<int> range );
+		void	addNumber( int *range, int size );
 		int		shortestSpan();
 		int		longestSpan();
+
+		std::vector<int>	getSpan( void ) const;
 
 		class SpanFullException: public std::exception{
 			public:
