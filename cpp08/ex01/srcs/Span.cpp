@@ -68,11 +68,11 @@ Span &Span::operator= ( Span const &obj){
 }
 
 const char *Span::SpanFullException::what( void ) const throw(){
-	return ("Span is full");
+	return ("Exception : span is full");
 }
 
 const char *Span::EmptySpanException::what( void ) const throw(){
-	return ("Span is too empty");
+	return ("Exception : span is too empty");
 }
 
 Span::~Span( void ){
