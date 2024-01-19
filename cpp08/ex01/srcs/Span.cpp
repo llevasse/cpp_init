@@ -32,6 +32,23 @@ void Span::addNumber( int *range, int size ){
 	_vec.insert(_vec.begin(), range, range + size);
 }
 
+int	Span::shortestSpan( void ){
+	int	min=0x7fffffff;
+	if (_vec.size() <= 1)
+		throw (EmptySpanException());
+	sort(_vec.begin(), _vec.end());
+	for (unsigned long i=1;i<_vec.size();i++)
+		min = min < _vec[i] - _vec[i - 1] ? min : _vec[i] - _vec[i - 1];
+	return (min);
+}
+
+int	Span::longestSpan( void ){
+	if (_vec.size() <= 1)
+		throw (EmptySpanException());
+	sort(_vec.begin(), _vec.end());
+	return (_vec.back() - _vec[0]);
+}
+
 std::vector<int> Span::getSpan( void ) const{
 	return (_vec);
 }
@@ -55,7 +72,7 @@ const char *Span::SpanFullException::what( void ) const throw(){
 }
 
 const char *Span::EmptySpanException::what( void ) const throw(){
-	return ("Span is empty");
+	return ("Span is too empty");
 }
 
 Span::~Span( void ){
