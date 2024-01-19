@@ -15,20 +15,20 @@ Span::Span( unsigned int n ){
 }
 
 void Span::addNumber( int nb ){
-	if (_vec.size() >= _size)
-		return ;
+	if (_vec.size() + 1 > _size)
+		throw (SpanFullException());
 	_vec.push_back(nb);
 }
 
 void Span::addNumber( std::vector<int> range ){
-	if (_vec.size() + range.size() >= _size)
-		return ;
+	if (_vec.size() + range.size() > _size)
+		throw (SpanFullException());
 	_vec.insert(_vec.begin(), range.begin(), range.end());
 }
 
 void Span::addNumber( int *range, int size ){
-	if (_vec.size() + size >= _size)
-		return ;
+	if (_vec.size() + size > _size)
+		throw (SpanFullException());
 	_vec.insert(_vec.begin(), range, range + size);
 }
 
@@ -48,6 +48,14 @@ Span &Span::operator= ( Span const &obj){
 		std::cout << "Span copy assignment operator called!" << std::endl;
 	(void)obj;
 	return (*this);
+}
+
+const char *Span::SpanFullException::what( void ) const throw(){
+	return ("Span is full");
+}
+
+const char *Span::EmptySpanException::what( void ) const throw(){
+	return ("Span is empty");
 }
 
 Span::~Span( void ){
