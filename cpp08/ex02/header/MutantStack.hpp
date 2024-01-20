@@ -1,15 +1,24 @@
 #ifndef MUTANTSTACK_HPP
 # define MUTANTSTACK_HPP
 
-# include <iostream>
+# ifndef MUTE
+#  define MUTE 0
+# endif
 
-class MutantStack{
+# include <iostream>
+# include <stack>
+
+template <typename T>
+class MutantStack : public std::stack<T>{
 	public:
-		MutantStack( void );
-		MutantStack( MutantStack const &obj );
-		MutantStack &operator= ( MutantStack const &obj );
-		~MutantStack( void );
+		MutantStack( void ) {};
+		MutantStack( MutantStack const &obj ) {*this = obj;};
+		MutantStack &operator= ( MutantStack const &obj ) {
+			if (this != &obj)
+				this->c = obj.c;
+			return (*this);
+		};
+		~MutantStack( void ) {};
 };
 
-std::ostream &operator << (std::ostream &out, const MutantStack &obj);
 #endif
