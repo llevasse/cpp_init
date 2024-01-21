@@ -1,6 +1,15 @@
 #include "BitcoinExchange.hpp"
 
 BitcoinExchange::BitcoinExchange( void ){
+	std::ifstream	inf("data.csv");
+	if (!inf.is_open())
+		throw (ErrorOpenData());
+	std::string line;
+	std::string date;
+	float		value;
+	while (getline(inf, line)){
+		
+	}
 	if (!MUTE)
 		std::cout << "BitcoinExchange default \033[32mconstructor\033[0m called!" << std::endl;
 }
