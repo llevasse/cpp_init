@@ -71,13 +71,14 @@ CC				=	c++
 RM				=	rm -rf
 
 #---CUB_VAR---------------------------------------
-SRC				=	./srcs/$1.cpp\\
+SRC				=	./srcs/$1.cpp \\
 \t\t\t\t\t./srcs/main.cpp
 
 OBJS_DIR		=	.OBJS/
 OBJS			=	"'$(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))'"
 
-HEADER_FILE		=	header/$1.hpp
+HEADER_FILE		=	./header/$1.hpp \\
+
 INCLUDE			=	-I header/
 
 # ----
@@ -119,8 +120,14 @@ addSrcs(){
 	sed -i -e "s|$main|$cpath \n$main|g" Makefile
 }
 
+addHeader(){
+	hpath="\t\t\t\t\t\./header/$1.hpp \\\\" 
+	sed -i -e "0,/.hpp/{s|\.hpp \\\\|.hpp \\\\\n$hpath|}" Makefile
+}
+
 if test -f Makefile; then
 	addSrcs $1
+	addHeader $1
 else
 	createMakefile $1
 fi
