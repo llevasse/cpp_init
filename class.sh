@@ -71,7 +71,8 @@ CC				=	c++
 RM				=	rm -rf
 
 #---CUB_VAR---------------------------------------
-SRC				=	./srcs/$1.cpp ./srcs/main.cpp
+SRC				=	./srcs/$1.cpp\\
+\t\t\t\t\t./srcs/main.cpp
 
 OBJS_DIR		=	.OBJS/
 OBJS			=	"'$(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))'"
@@ -112,8 +113,14 @@ re:				fclean all
 .PHONY:			all clean fclean re' > Makefile
 }
 
+addSrcs(){
+	main="\t\t\t\t\t\./srcs/main.cpp"
+	cpath="\t\t\t\t\t\./srcs/$1.cpp \\\\"
+	sed -i -e "s|$main|$cpath \n$main|g" Makefile
+}
+
 if test -f Makefile; then
-	echo "exists"
+	addSrcs $1
 else
 	createMakefile $1
 fi
