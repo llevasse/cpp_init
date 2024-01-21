@@ -1,11 +1,11 @@
 #ifndef BITCOINEXCHANGE_HPP
 # define BITCOINEXCHANGE_HPP
 
+# include <iostream>
+
 # ifndef MUTE
 #  define MUTE 0
 # endif
-
-# include <iostream>
 
 class BitcoinExchange{
 	public:
