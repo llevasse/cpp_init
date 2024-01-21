@@ -21,7 +21,7 @@ class AForm{
 		AForm( AForm const &obj );
 		AForm( std::string name, int signGrade, int execGrade );
 		AForm &operator= ( AForm const &obj );
-		~AForm( void );
+		virtual ~AForm( void );
 
 		const std::string	getName() const;
 		bool				getSigned() const;

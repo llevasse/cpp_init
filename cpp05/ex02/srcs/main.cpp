@@ -6,7 +6,7 @@
 /*   By: llevasse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 01:09:50 by llevasse          #+#    #+#             */
-/*   Updated: 2024/01/04 21:14:56 by llevasse         ###   ########.fr       */
+/*   Updated: 2024/01/21 16:50:09 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,14 @@ int main(){
 		std::cout << std::endl;
 		PresidentialPardonForm b = a;
 		std::cout << b << std::endl;
+	}
+	catch(const std::exception &e){
+		std::cerr << e.what() << std::endl;
+		std::cerr << std::endl;
+	}
+	try{
+		AForm *toRemove = new PresidentialPardonForm("george");
+		delete (toRemove);
 	}
 	catch(const std::exception &e){
 		std::cerr << e.what() << std::endl;
