@@ -23,6 +23,8 @@ class BitcoinExchange{
 
 		bool	checkDate(std::string date);
 
+		std::map<std::string, float>	getMap( void ) const;
+
 		class InvalidDateException : public std::exception{
 			public:
 				virtual const char	*what( void ) const throw();

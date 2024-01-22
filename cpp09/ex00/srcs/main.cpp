@@ -2,5 +2,5 @@
 
 int main(){
 	BitcoinExchange btc;
-	(void)btc;
+	std::cout << btc["2019-06-07"] << std::endl;
 }

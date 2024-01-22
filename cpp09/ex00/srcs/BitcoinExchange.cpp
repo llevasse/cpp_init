@@ -1,7 +1,7 @@
 #include "BitcoinExchange.hpp"
 
 BitcoinExchange::BitcoinExchange( void ){
-	std::ifstream	inf("datatmp.csv");
+	std::ifstream	inf("data.csv");
 	if (!inf.is_open())
 		return ;
 	std::string line;
@@ -14,9 +14,10 @@ BitcoinExchange::BitcoinExchange( void ){
 		if (found == std::string::npos)
 			break ;
 		date = line.substr(0, found);
-		checkDate(date);
+		if (!checkDate(date))
+			return ;
 		value = atof(line.substr(found + 1).c_str());
-		std::cout << date << " " << value << std::endl;
+		_map[date] = value;
 	}
 	if (!MUTE)
 		std::cout << "BitcoinExchange default \033[32mconstructor\033[0m called!" << std::endl;
@@ -25,15 +26,18 @@ BitcoinExchange::BitcoinExchange( void ){
 BitcoinExchange::BitcoinExchange( BitcoinExchange const &obj){
 	if (!MUTE)
 		std::cout << "BitcoinExchange copy \033[32mconstructor\033[0m called!" << std::endl;
-	if (this != &obj)
-		*this = obj;
+	*this = obj;
 }
 
 BitcoinExchange &BitcoinExchange::operator= ( BitcoinExchange const &obj){
 	if (!MUTE)
 		std::cout << "BitcoinExchange copy assignment operator called!" << std::endl;
-	(void)obj;
+	this->_map = obj.getMap();	
 	return (*this);
+}
+
+float &BitcoinExchange::operator[] ( std::string date ){
+	return (_map[date]);
 }
 
 BitcoinExchange::~BitcoinExchange( void ){
@@ -45,6 +49,10 @@ std::ostream &operator << (std::ostream &out, const BitcoinExchange &obj){
 	out << "BitcoinExchange";
 	(void)obj;
 	return (out);
+}
+
+std::map<std::string, float> BitcoinExchange::getMap( void ) const{
+	return (_map);
 }
 
 bool	isLeap(int year){
@@ -73,10 +81,7 @@ bool BitcoinExchange::checkDate( std::string date ){
 	found = date.find("-", found + 1);
 	month = date.substr(found - 2, 2);
 	day = date.substr(found+1);
-	if (year.length() != 4 || month.length() != 2 || day.length() != 2)
+	if (year.length() != 4 || month.length() != 2 || day.length() != 2 || !valideDay(atoi(year.c_str()), atoi(month.c_str()), atoi(day.c_str())))
 		return (false);
-	if (!valideDay(atoi(year.c_str()), atoi(month.c_str()), atoi(day.c_str())))
-		return (false);
-	printf("%s/%s/%s\n", year.c_str(), month.c_str(), day.c_str());
 	return (true);	
 }
