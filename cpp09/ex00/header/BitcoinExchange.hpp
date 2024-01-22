@@ -3,6 +3,8 @@
 
 # include <iostream>
 # include <fstream>
+# include <map>
+# include <stdlib.h>
 
 # ifndef MUTE
 #  define MUTE 0
@@ -10,7 +12,7 @@
 
 class BitcoinExchange{
 	private :
-		std::unordered_map<std::string, float> _map;
+		std::map<std::string, float> _map;
 	public:
 		BitcoinExchange( void );
 		BitcoinExchange( BitcoinExchange const &obj );
@@ -18,6 +20,8 @@ class BitcoinExchange{
 		~BitcoinExchange( void );
 
 		float &operator[] (std::string date);
+
+		bool	checkDate(std::string date);
 
 		class InvalidDateException : public std::exception{
 			public:
