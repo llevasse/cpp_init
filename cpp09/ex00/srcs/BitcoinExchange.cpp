@@ -37,6 +37,8 @@ BitcoinExchange &BitcoinExchange::operator= ( BitcoinExchange const &obj){
 }
 
 float &BitcoinExchange::operator[] ( std::string date ){
+	if (_map.find(date) == _map.end())
+		_map[date] = -42;
 	return (_map[date]);
 }
 
@@ -70,6 +72,12 @@ bool	valideDay(int year, int month, int day){
 	if (month == 4 || month == 6 || month == 9 || month == 11)
 		return (day < 31);
 	return (1);
+}
+
+std::string BitcoinExchange::getClosestDate( std::string date ){
+//	std::string	prev;
+//	std::string	next;
+	return (date);
 }
 
 bool BitcoinExchange::checkDate( std::string date ){

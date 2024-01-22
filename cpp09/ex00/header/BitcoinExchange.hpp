@@ -24,6 +24,7 @@ class BitcoinExchange{
 		bool	checkDate(std::string date);
 
 		std::map<std::string, float>	getMap( void ) const;
+		std::string						getClosestDate( std::string date );
 
 		class InvalidDateException : public std::exception{
 			public:
