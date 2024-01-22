@@ -37,8 +37,11 @@ BitcoinExchange &BitcoinExchange::operator= ( BitcoinExchange const &obj){
 }
 
 float &BitcoinExchange::operator[] ( std::string date ){
-	if (_map.find(date) == _map.end())
+	if (_map.find(date) == _map.end()){
+		return (_map[getClosestDate(date)]);
+		getClosestDate(date);
 		_map[date] = -42;
+	}
 	return (_map[date]);
 }
 
@@ -74,10 +77,49 @@ bool	valideDay(int year, int month, int day){
 	return (1);
 }
 
+std::string	decreaseDate( std::string date ){
+	int	year = atoi(date.substr(0, 4).c_str());
+	int	month = atoi(date.substr(5, 7).c_str());
+	int	day = atoi(date.substr(8).c_str());
+	std::ostringstream s;
+	
+	if (day == 1){
+		if (month != 1)
+			month--;
+		else{
+			month = 12;
+			year--;
+		}
+		day = 31;
+		if (month == 2){
+			day = 28;
+			if (isLeap(year))
+				day = 29;
+		}
+	}
+	else
+		day--;
+	s << year << "-";
+	if (month < 10)
+		s << "0";
+	s << month << "-";
+	if (day < 10)
+		s << "0";
+	s << day;
+	return (s.str());
+}
+
 std::string BitcoinExchange::getClosestDate( std::string date ){
-//	std::string	prev;
+	std::string	prev (date);
+	int			prevDist=0;
+
+	while (_map.find(prev) == _map.end()){
+		prevDist++;
+		prev = decreaseDate(prev);
+	}
+	
 //	std::string	next;
-	return (date);
+	return (prev);
 }
 
 bool BitcoinExchange::checkDate( std::string date ){

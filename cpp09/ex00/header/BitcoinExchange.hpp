@@ -5,6 +5,7 @@
 # include <fstream>
 # include <map>
 # include <stdlib.h>
+# include <sstream>
 
 # ifndef MUTE
 #  define MUTE 0
