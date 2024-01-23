@@ -62,7 +62,7 @@ bool	isLeap(int year){
 }
 
 bool	valideDay(int year, int month, int day){
-	if (year < 2009)
+	if (year < 2009 || year > 2022)
 		throw (BitcoinExchange::DateOutOfBoundException());
 	if (day > 31 || day < 1 || month < 1 || month > 12 || year < 2009)
 		throw (BitcoinExchange::InvalidDateException());
