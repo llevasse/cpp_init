@@ -25,6 +25,7 @@ class BitcoinExchange{
 		float &operator[] (std::string date);
 
 		bool	checkDate(std::string date);
+		bool	checkValue(std::string val);
 
 		std::map<std::string, float>	getMap( void ) const;
 		std::string						getClosestDate( std::string date );

@@ -166,6 +166,19 @@ bool BitcoinExchange::checkDate( std::string date ){
 	return (true);	
 }
 
+bool BitcoinExchange::checkValue( std::string val ){
+	int	point=0;
+	for (unsigned int i=0;i<val.length();i++){
+		if (!isdigit(val[i])){
+			if (val[i] == '.' && point == 0)
+				point++;
+			else
+				return (false);
+		}
+	}
+	return (true);
+}
+
 const char *BitcoinExchange::InvalidLineException::what( void ) const throw(){
 	return ("Invalid line");
 }
@@ -181,7 +194,7 @@ void BitcoinExchange::checkLine( std::string line, std::string &date, float &val
 	if (!checkDate(date))
 		throw (InvalidLineException());
 	value = atof(line.substr(13).c_str());
-	if (value < 0 || value > 1000)
+	if (value < 0 || value > 1000 || !checkValue(line.substr(13)))
 		throw (InvalidValueException());
 }
 
@@ -189,7 +202,7 @@ void BitcoinExchange::trim( std::string &line ){
 	int	beg=0, end=line.length()-1;
 	for (; end > 0 && !isalnum(line[end]); end--);
 	for (; beg < end && !isalnum(line[beg]); beg++);
-	line = line.substr(beg, end);
+	line = line.substr(beg, end+1);
 }
 
 void BitcoinExchange::display( std::string line ){
