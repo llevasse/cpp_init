@@ -2,6 +2,8 @@
 # define BITCOINEXCHANGE_HPP
 
 # include <iostream>
+# include <algorithm>
+# include <string>
 # include <fstream>
 # include <map>
 # include <stdlib.h>
@@ -29,6 +31,7 @@ class BitcoinExchange{
 
 		void	display( std::string line );
 		void	checkLine( std::string line, std::string &date, float &value );
+		void	trim( std::string &line );
 
 		class InvalidDateException : public std::exception{
 			public:

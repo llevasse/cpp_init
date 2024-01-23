@@ -185,7 +185,15 @@ void BitcoinExchange::checkLine( std::string line, std::string &date, float &val
 		throw (InvalidValueException());
 }
 
+void BitcoinExchange::trim( std::string &line ){
+	int	beg=0, end=line.length()-1;
+	for (; end > 0 && !isalnum(line[end]); end--);
+	for (; beg < end && !isalnum(line[beg]); beg++);
+	line = line.substr(beg, end);
+}
+
 void BitcoinExchange::display( std::string line ){
+	trim(line);
 	std::string date;
 	float		value;
 	try {
