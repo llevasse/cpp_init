@@ -42,6 +42,14 @@ class BitcoinExchange{
 			public:
 				virtual const char	*what( void ) const throw();
 		};
+		class NegativeValueException : public std::exception{
+			public:
+				virtual const char	*what( void ) const throw();
+		};
+		class TooBigValueException : public std::exception{
+			public:
+				virtual const char	*what( void ) const throw();
+		};
 		class InvalidDateException : public std::exception{
 			public:
 				virtual const char	*what( void ) const throw();

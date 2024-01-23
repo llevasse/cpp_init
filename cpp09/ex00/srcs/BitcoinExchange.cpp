@@ -175,7 +175,7 @@ bool BitcoinExchange::checkValue( std::string val ){
 			if (val[i] == '.' && point == 0)
 				point++;
 			else
-				return (false);
+				throw (InvalidValueException());
 		}
 	}
 	return (true);
@@ -188,8 +188,11 @@ void BitcoinExchange::checkLine( std::string line, std::string &date, float &val
 	if (!checkDate(date))
 		throw (InvalidLineException());
 	value = atof(line.substr(13).c_str());
-	if (value < 0 || value > 1000 || !checkValue(line.substr(13)))
-		throw (InvalidValueException());
+	if (value < 0)
+		throw (NegativeValueException());
+	if (value > 1000)
+		throw (TooBigValueException());
+	checkValue(line.substr(13));
 }
 
 void BitcoinExchange::trim( std::string &line ){
@@ -219,6 +222,14 @@ const char *BitcoinExchange::InvalidLineException::what( void ) const throw(){
 
 const char *BitcoinExchange::InvalidValueException::what( void ) const throw(){
 	return ("Invalid value");
+}
+
+const char *BitcoinExchange::NegativeValueException::what( void ) const throw(){
+	return ("Negative value");
+}
+
+const char *BitcoinExchange::TooBigValueException::what( void ) const throw(){
+	return ("Value is above limit");
 }
 
 const char *BitcoinExchange::InvalidDateException::what( void ) const throw(){
