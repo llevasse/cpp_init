@@ -165,3 +165,35 @@ bool BitcoinExchange::checkDate( std::string date ){
 		return (false);
 	return (true);	
 }
+
+const char *BitcoinExchange::InvalidLineException::what( void ) const throw(){
+	return ("Invalid line");
+}
+
+const char *BitcoinExchange::InvalidValueException::what( void ) const throw(){
+	return ("Invalid value");
+}
+
+void BitcoinExchange::checkLine( std::string line, std::string &date, float &value ){
+	if (line.length() < 14)
+		throw (InvalidLineException());
+	date = line.substr(0, 10);
+	if (!checkDate(date))
+		throw (InvalidLineException());
+	value = atof(line.substr(13).c_str());
+	if (value < 0 || value > 1000)
+		throw (InvalidValueException());
+}
+
+void BitcoinExchange::display( std::string line ){
+	std::string date;
+	float		value;
+	try {
+		checkLine(line, date, value);
+		std::cout << date << " => " << value << " = " << (*this)[date] * value << std::endl;
+	}
+	catch (const std::exception &e){
+		std::cerr << "Exception " << e.what() << std::endl;
+	}
+
+}

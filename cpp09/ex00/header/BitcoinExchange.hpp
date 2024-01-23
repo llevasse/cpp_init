@@ -27,7 +27,18 @@ class BitcoinExchange{
 		std::map<std::string, float>	getMap( void ) const;
 		std::string						getClosestDate( std::string date );
 
+		void	display( std::string line );
+		void	checkLine( std::string line, std::string &date, float &value );
+
 		class InvalidDateException : public std::exception{
+			public:
+				virtual const char	*what( void ) const throw();
+		};
+		class InvalidLineException : public std::exception{
+			public:
+				virtual const char	*what( void ) const throw();
+		};
+		class InvalidValueException : public std::exception{
 			public:
 				virtual const char	*what( void ) const throw();
 		};

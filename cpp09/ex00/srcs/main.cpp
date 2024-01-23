@@ -2,5 +2,9 @@
 
 int main(){
 	BitcoinExchange btc;
-	std::cout << btc["2019-06-09"] << std::endl;
+	std::ifstream	inf("input.txt");
+	std::string		line;
+	getline(inf, line);
+	while (getline(inf, line))
+		btc.display(line);
 }
