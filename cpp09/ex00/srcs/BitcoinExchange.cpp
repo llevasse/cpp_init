@@ -62,8 +62,10 @@ bool	isLeap(int year){
 }
 
 bool	valideDay(int year, int month, int day){
-	if (day > 31 || day < 1 || month < 1 || month > 12)
-		return (0);
+	if (year < 2009)
+		throw (BitcoinExchange::DateOutOfBoundException());
+	if (day > 31 || day < 1 || month < 1 || month > 12 || year < 2009)
+		throw (BitcoinExchange::InvalidDateException());
 	if (month == 2){
 		if (isLeap(year))
 			return (day < 30);
@@ -162,7 +164,7 @@ bool BitcoinExchange::checkDate( std::string date ){
 	month = date.substr(found - 2, 2);
 	day = date.substr(found+1);
 	if (year.length() != 4 || month.length() != 2 || day.length() != 2 || !valideDay(atoi(year.c_str()), atoi(month.c_str()), atoi(day.c_str())))
-		return (false);
+		throw (InvalidDateException());
 	return (true);	
 }
 
@@ -177,14 +179,6 @@ bool BitcoinExchange::checkValue( std::string val ){
 		}
 	}
 	return (true);
-}
-
-const char *BitcoinExchange::InvalidLineException::what( void ) const throw(){
-	return ("Invalid line");
-}
-
-const char *BitcoinExchange::InvalidValueException::what( void ) const throw(){
-	return ("Invalid value");
 }
 
 void BitcoinExchange::checkLine( std::string line, std::string &date, float &value ){
@@ -217,4 +211,20 @@ void BitcoinExchange::display( std::string line ){
 		std::cerr << "Exception " << e.what() << std::endl;
 	}
 
+}
+
+const char *BitcoinExchange::InvalidLineException::what( void ) const throw(){
+	return ("Invalid line");
+}
+
+const char *BitcoinExchange::InvalidValueException::what( void ) const throw(){
+	return ("Invalid value");
+}
+
+const char *BitcoinExchange::InvalidDateException::what( void ) const throw(){
+	return ("Invalid date");
+}
+
+const char *BitcoinExchange::DateOutOfBoundException::what( void ) const throw(){
+	return ("Date is out of bound from registered data");
 }

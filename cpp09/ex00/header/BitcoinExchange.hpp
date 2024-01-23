@@ -34,15 +34,19 @@ class BitcoinExchange{
 		void	checkLine( std::string line, std::string &date, float &value );
 		void	trim( std::string &line );
 
-		class InvalidDateException : public std::exception{
-			public:
-				virtual const char	*what( void ) const throw();
-		};
 		class InvalidLineException : public std::exception{
 			public:
 				virtual const char	*what( void ) const throw();
 		};
 		class InvalidValueException : public std::exception{
+			public:
+				virtual const char	*what( void ) const throw();
+		};
+		class InvalidDateException : public std::exception{
+			public:
+				virtual const char	*what( void ) const throw();
+		};
+		class DateOutOfBoundException : public std::exception{
 			public:
 				virtual const char	*what( void ) const throw();
 		};
