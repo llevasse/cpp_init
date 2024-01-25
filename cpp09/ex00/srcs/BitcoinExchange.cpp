@@ -62,8 +62,8 @@ bool	isLeap(int year){
 }
 
 bool	valideDay(int year, int month, int day){
-/*	if (year < 2009 || year > 2022)
-		throw (BitcoinExchange::DateOutOfBoundException());*/
+	if (year < 2009 || (year == 2009 && month == 1 && day == 1))
+		throw (BitcoinExchange::DateOutOfBoundException());
 	if (day > 31 || day < 1 || month < 1 || month > 12 || year < 2009)
 		throw (BitcoinExchange::InvalidDateException());
 	if (month == 2){
@@ -110,48 +110,12 @@ std::string	decreaseDate( std::string date ){
 	return (s.str());
 }
 
-std::string	increaseDate( std::string date ){
-	int	year = atoi(date.substr(0, 4).c_str());
-	int	month = atoi(date.substr(5, 7).c_str());
-	int	day = atoi(date.substr(8).c_str());
-	std::ostringstream s;
-	
-	if (day == 31 || (month == 2 && ((isLeap(year) && day == 29) || (!isLeap(year) && day == 28))) || (day == 30 && (month == 4 || month == 6 || month == 9 || month == 11))){
-		if (month != 12)
-			month++;
-		else{
-			month = 1;
-			year++;
-		}
-		day = 1;
-	}
-	else
-		day++;
-	s << year << "-";
-	if (month < 10)
-		s << "0";
-	s << month << "-";
-	if (day < 10)
-		s << "0";
-	s << day;
-	return (s.str());
-}
-
 std::string BitcoinExchange::getClosestDate( std::string date ){
 	std::string	prev (date);
-	std::string next (date);
-	int			prevDist=0;
-	int			nextDist=0;
 
-	while (_map.find(prev) == _map.end()){
-		prevDist++;
+	while (_map.find(prev) == _map.end())
 		prev = decreaseDate(prev);
-	}
-	while (_map.find(next) == _map.end()){
-		nextDist++;
-		next = increaseDate(next);
-	}
-	return (prevDist > nextDist ? next : prev);	
+	return (prev);	
 }
 
 bool BitcoinExchange::checkDate( std::string date ){
@@ -211,7 +175,7 @@ void BitcoinExchange::display( std::string line ){
 		std::cout << date << " => " << value << " = " << (*this)[date] * value << std::endl;
 	}
 	catch (const std::exception &e){
-		std::cerr << "Exception " << e.what() << std::endl;
+		std::cerr << "Error : " << e.what() << std::endl;
 	}
 
 }
@@ -237,5 +201,5 @@ const char *BitcoinExchange::InvalidDateException::what( void ) const throw(){
 }
 
 const char *BitcoinExchange::DateOutOfBoundException::what( void ) const throw(){
-	return ("Date is out of bound from registered data");
+	return ("Date is before the invention of bitcoin");
 }
