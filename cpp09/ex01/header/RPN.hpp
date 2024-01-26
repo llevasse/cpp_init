@@ -12,6 +12,7 @@ class RPN{
 	private:
 		std::stack<int>	_stack;
 		RPN( void );
+		void	do_op(char c);
 	public:
 		RPN( std::string operands );
 		RPN( RPN const &obj );
