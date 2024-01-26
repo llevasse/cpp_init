@@ -20,6 +20,10 @@ class RPN{
 		~RPN( void );
 
 		std::stack<int>	getStack( void ) const;
+		class InvalidInputException : public std::exception{
+			public:
+				virtual const char	*what( void ) const throw();
+		};
 };
 
 std::ostream &operator << (std::ostream &out, const RPN &obj);

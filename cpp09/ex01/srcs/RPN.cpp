@@ -7,7 +7,7 @@ RPN::RPN( void ){
 
 void	RPN::do_op( char c ){
 	if (_stack.size() < 2)
-		return ;
+		throw (InvalidInputException()) ;
 	int	first = _stack.top();
 	_stack.pop();
 	int	sec = _stack.top();
@@ -25,18 +25,25 @@ void	RPN::do_op( char c ){
 RPN::RPN( std::string operands ){		// need to handle negatives ???
 	if (!MUTE)
 		std::cout << "RPN default \033[32mconstructor\033[0m called!" << std::endl;
-	for (unsigned int i=0;i<operands.length();i++){
-		char	c = operands[i];
-		if (isdigit(c))
-			_stack.push(c - '0');
-		else if (c == '-' || c == '/' || c == '+' || c == '*')
-			do_op(c);
+	try {
+		for (unsigned int i=0;i<operands.length();i++){
+			char	c = operands[i];
+			if (isdigit(c))
+				_stack.push(c - '0');
+			else if (c == '-' || c == '/' || c == '+' || c == '*')
+				do_op(c);
+		}
+		if (_stack.size() == 1){
+			std::cout << _stack.top() << " ";
+			_stack.pop();
+		}
+		else
+			throw (InvalidInputException());
+		std::cout << std::endl;
 	}
-	if (_stack.size() == 1){
-		std::cout << _stack.top() << " ";
-		_stack.pop();
+	catch (std::exception &e){
+		std::cerr << "Error : " << e.what() << std::endl;
 	}
-	std::cout << std::endl;
 }
 
 RPN::RPN( RPN const &obj){
@@ -67,4 +74,8 @@ std::ostream &operator << (std::ostream &out, const RPN &obj){
 	out << "RPN";
 	(void)obj;
 	return (out);
+}
+
+const	char*RPN::InvalidInputException::what( void ) const throw(){
+	return ("Invalid line");
 }
