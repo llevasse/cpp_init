@@ -2,6 +2,8 @@
 # define PMERGEME_HPP
 
 # include <iostream>
+# include <vector>
+# include <stdlib.h>
 
 # ifndef MUTE
 #  define MUTE 0
@@ -9,6 +11,7 @@
 
 class PmergeMe{
 	public:
+		void sortVector(int argc, char **argv);
 		PmergeMe( void );
 		PmergeMe( PmergeMe const &obj );
 		PmergeMe &operator= ( PmergeMe const &obj );
