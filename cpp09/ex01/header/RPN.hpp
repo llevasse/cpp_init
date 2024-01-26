@@ -20,6 +20,8 @@ class RPN{
 		~RPN( void );
 
 		std::stack<int>	getStack( void ) const;
+
+		void	solve( std::string operands );
 		class InvalidInputException : public std::exception{
 			public:
 				virtual const char	*what( void ) const throw();

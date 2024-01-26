@@ -21,10 +21,13 @@ void	RPN::do_op( char c ){
 	else if (c == '*')
 		_stack.push(sec * first);
 }
-
-RPN::RPN( std::string operands ){		// need to handle negatives ???
+RPN::RPN( std::string operands ){
 	if (!MUTE)
 		std::cout << "RPN default \033[32mconstructor\033[0m called!" << std::endl;
+	solve(operands);
+}
+
+void RPN::solve( std::string operands ){
 	try {
 		for (unsigned int i=0;i<operands.length();i++){
 			char	c = operands[i];
