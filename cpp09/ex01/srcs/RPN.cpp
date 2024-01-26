@@ -32,6 +32,8 @@ RPN::RPN( std::string operands ){		// need to handle negatives ???
 				_stack.push(c - '0');
 			else if (c == '-' || c == '/' || c == '+' || c == '*')
 				do_op(c);
+			else if (!isspace(c))
+				throw (InvalidInputException());
 		}
 		if (_stack.size() == 1){
 			std::cout << _stack.top() << " ";
