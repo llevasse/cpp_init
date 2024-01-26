@@ -8,6 +8,16 @@ RPN::RPN( void ){
 RPN::RPN( std::string operands ){
 	if (!MUTE)
 		std::cout << "RPN default \033[32mconstructor\033[0m called!" << std::endl;
+	for (unsigned int i=0;i<operands.length();i++){
+		char	c = operands[i];
+		if (isdigit(c) || c == '-' || c == '/' || c == '+' || c == '*')
+			_stack.push(c);
+	}
+	while (_stack.size()){
+		std::cout << (char)_stack.top() << " ";
+		_stack.pop();
+	}
+	std::cout << std::endl;
 }
 
 RPN::RPN( RPN const &obj){
@@ -30,7 +40,7 @@ RPN::~RPN( void ){
 		std::cout << "RPN \033[31mdestructor\033[0m called!" << std::endl;
 }
 
-std::stack<int>	RPN::getStack( void ){
+std::stack<int>	RPN::getStack( void ) const{
 	return (_stack);
 }
 

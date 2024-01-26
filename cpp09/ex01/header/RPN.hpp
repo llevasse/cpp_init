@@ -18,7 +18,7 @@ class RPN{
 		RPN &operator= ( RPN const &obj );
 		~RPN( void );
 
-		std::stack<int>	getStack( void );
+		std::stack<int>	getStack( void ) const;
 };
 
 std::ostream &operator << (std::ostream &out, const RPN &obj);
