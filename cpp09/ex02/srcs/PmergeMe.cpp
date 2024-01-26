@@ -31,7 +31,7 @@ std::ostream &operator << (std::ostream &out, const PmergeMe &obj){
 }
 
 void	PmergeMe::sortVector( int argc, char **argv ){
-//	std::vector<int> res;
+	std::vector<int> res;
 	std::vector<std::vector<int> > groups (argc / 2);
 	std::vector<std::vector<int> >::iterator	it = groups.begin();
 	for (int i=1;i + 1<argc;i += 2){
@@ -44,8 +44,29 @@ void	PmergeMe::sortVector( int argc, char **argv ){
 		}
 		it++;
 	}
-	for (unsigned int i=0;i<groups.size();i++){		//seg fault if odd nb of elements
-		std::cout << groups[i][0] << " " << groups[i][1] << " ";
+	res.push_back(groups[0][1]);
+	res.push_back(groups[1][1]);
+	if (res[0] > res[1]){
+		int	tmp = (res)[0];
+		(res)[0] = (res)[1];
+		(res)[1] = tmp;
+	}
+	for (unsigned int i=2;i<groups.size();i++){
+		std::vector<int>::iterator it = std::upper_bound(res.begin(), res.end(), groups[i][1]);
+		if (it == res.end())
+			res.push_back(groups[i][1]);
+		else
+			res.insert(it, groups[i][1]);
+	}
+	for (unsigned int i=0;i<groups.size();i++){
+		std::vector<int>::iterator it = std::upper_bound(res.begin(), res.end(), groups[i][0]);
+		if (it == res.end())
+			res.push_back(groups[i][0]);
+		else
+			res.insert(it, groups[i][0]);
+	}
+	for (unsigned int i=0;i<res.size();i++){		//seg fault if odd nb of elements
+		std::cout << res[i] << " ";
 	}
 	std::cout << std::endl;
 }

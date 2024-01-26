@@ -4,6 +4,7 @@
 # include <iostream>
 # include <vector>
 # include <stdlib.h>
+# include <algorithm>
 
 # ifndef MUTE
 #  define MUTE 0
