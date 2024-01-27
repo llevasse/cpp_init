@@ -85,7 +85,8 @@ double	PmergeMe::sortVector( int argc, char **argv ){
 		res.push_back(groups[i][1]);
 	mergeSortVector(res, 0, res.size() - 1);
 	for (unsigned int i=0;i<groups.size();i++){
-		std::vector<int>::iterator it = std::upper_bound(res.begin(), res.end(), groups[i][0]);
+		std::vector<int>::iterator bound = std::find(res.begin(), res.end(), groups[i][1]);
+		std::vector<int>::iterator it = std::upper_bound(res.begin(), bound, groups[i][0]);
 		if (it == res.end())
 			res.push_back(groups[i][0]);
 		else
