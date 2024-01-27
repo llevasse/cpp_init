@@ -31,7 +31,7 @@ std::ostream &operator << (std::ostream &out, const PmergeMe &obj){
 }
 
 double	PmergeMe::sortVector( int argc, char **argv ){
-	time_t	start = time(NULL);
+	clock_t	t = clock();
 	std::vector<int> res;
 	std::vector<std::vector<int> > groups ((argc - 1) / 2);
 	std::vector<std::vector<int> >::iterator	it = groups.begin();
@@ -83,11 +83,12 @@ double	PmergeMe::sortVector( int argc, char **argv ){
 			std::cout << res[i] << " ";
 		std::cout << std::endl;
 	}
-	return (difftime(time(NULL), start));
+	t = clock() - t;
+	return (((float)t/CLOCKS_PER_SEC) * 1000);
 }
 
 double	PmergeMe::sortDeque( int argc, char **argv ){
-	time_t	start = time(NULL);
+	clock_t	t = clock();
 	std::deque<int> res;
 	std::deque<std::deque<int> > groups ((argc - 1) / 2);
 	std::deque<std::deque<int> >::iterator	it = groups.begin();
@@ -139,5 +140,6 @@ double	PmergeMe::sortDeque( int argc, char **argv ){
 			std::cout << res[i] << " ";
 		std::cout << std::endl;
 	}
-	return (difftime(time(NULL), start));
+	t = clock() - t;
+	return (((float)t/CLOCKS_PER_SEC) * 1000);
 }
