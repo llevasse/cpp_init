@@ -7,7 +7,7 @@
 # include <stdlib.h>
 # include <algorithm>
 # include <stdio.h>
-# include <sys/time.h>
+# include <time.h>
 
 # ifndef MUTE
 #  define MUTE 0
