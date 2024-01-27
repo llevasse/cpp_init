@@ -5,6 +5,7 @@
 # include <vector>
 # include <stdlib.h>
 # include <algorithm>
+# include <stdio.h>
 
 # ifndef MUTE
 #  define MUTE 0

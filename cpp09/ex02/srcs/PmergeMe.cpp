@@ -32,7 +32,7 @@ std::ostream &operator << (std::ostream &out, const PmergeMe &obj){
 
 void	PmergeMe::sortVector( int argc, char **argv ){
 	std::vector<int> res;
-	std::vector<std::vector<int> > groups (argc / 2);
+	std::vector<std::vector<int> > groups ((argc - 1) / 2);
 	std::vector<std::vector<int> >::iterator	it = groups.begin();
 	for (int i=1;i + 1<argc;i += 2){
 		it->push_back(atoi(argv[i]));
@@ -64,6 +64,14 @@ void	PmergeMe::sortVector( int argc, char **argv ){
 			res.push_back(groups[i][0]);
 		else
 			res.insert(it, groups[i][0]);
+	}
+	if (argc % 2 == 0){
+		int	nb = atoi(argv[argc - 1]);
+		std::vector<int>::iterator it = std::upper_bound(res.begin(), res.end(), nb);
+		if (it == res.end())
+			res.push_back(nb);
+		else
+			res.insert(it, nb);
 	}
 	for (unsigned int i=0;i<res.size();i++){		//seg fault if odd nb of elements
 		std::cout << res[i] << " ";
