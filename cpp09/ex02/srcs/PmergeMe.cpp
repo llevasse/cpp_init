@@ -35,6 +35,7 @@ void	PmergeMe::sortVector( int argc, char **argv ){
 	std::vector<std::vector<int> > groups ((argc - 1) / 2);
 	std::vector<std::vector<int> >::iterator	it = groups.begin();
 	for (int i=1;i + 1<argc;i += 2){
+		std::cout << argv[i] << " " << argv[i + 1] << " ";
 		it->push_back(atoi(argv[i]));
 		it->push_back(atoi(argv[i + 1]));
 		if ((*it)[0] > (*it)[1]){
@@ -67,14 +68,15 @@ void	PmergeMe::sortVector( int argc, char **argv ){
 	}
 	if (argc % 2 == 0){
 		int	nb = atoi(argv[argc - 1]);
+		std::cout << argv[argc - 1];
 		std::vector<int>::iterator it = std::upper_bound(res.begin(), res.end(), nb);
 		if (it == res.end())
 			res.push_back(nb);
 		else
 			res.insert(it, nb);
 	}
-	for (unsigned int i=0;i<res.size();i++){		//seg fault if odd nb of elements
+	std::cout << std::endl;
+	for (unsigned int i=0;i<res.size();i++)
 		std::cout << res[i] << " ";
-	}
 	std::cout << std::endl;
 }
