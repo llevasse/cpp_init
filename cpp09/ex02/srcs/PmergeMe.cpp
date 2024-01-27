@@ -30,6 +30,38 @@ std::ostream &operator << (std::ostream &out, const PmergeMe &obj){
 	return (out);
 }
 
+void	PmergeMe::mergeVector(std::vector<int> &vec, int left, int mid, int right){
+	int	subOne = mid - left + 1, subTwo = right - mid;
+	std::vector<int>	vleft (subOne), vright (subTwo);
+	
+	for (int i=0;i<subOne;i++)
+		vleft[i] = vec[left + i];
+	for (int i=0;i<subTwo;i++)
+		vright[i] = vec[mid + 1 + i];
+	int	il=0,ir=0,i=left;
+	while (il < subOne && ir < subTwo){
+		if (vleft[il] <= vright[ir])
+			vec[i] = vleft[il++];
+		else
+			vec[i] = vright[ir++];
+		i++;
+	}
+	while (il < subOne)
+		vec[i++] = vleft[il++];
+	while (ir < subTwo)
+		vec[i++] = vright[ir++];
+}
+
+void	PmergeMe::mergeSortVector(std::vector<int> &vec, int begin, int end){
+	if (begin >= end)
+		return ;
+
+	int	mid = begin + (end - begin) / 2;
+	mergeSortVector(vec, begin, mid);
+	mergeSortVector(vec, mid + 1, end);
+	mergeVector(vec, begin, mid, end);
+}
+
 double	PmergeMe::sortVector( int argc, char **argv ){
 	clock_t	t = clock();
 	std::vector<int> res;
@@ -47,20 +79,11 @@ double	PmergeMe::sortVector( int argc, char **argv ){
 		}
 		it++;
 	}
-	res.push_back(groups[0][1]);
-	res.push_back(groups[1][1]);
-	if (res[0] > res[1]){
-		int	tmp = (res)[0];
-		(res)[0] = (res)[1];
-		(res)[1] = tmp;
-	}
-	for (unsigned int i=2;i<groups.size();i++){
-		std::vector<int>::iterator it = std::upper_bound(res.begin(), res.end(), groups[i][1]);
-		if (it == res.end())
-			res.push_back(groups[i][1]);
-		else
-			res.insert(it, groups[i][1]);
-	}
+	if (argc % 2 == 0 && !MUTE)
+		std::cout << argv[argc - 1];
+	for (unsigned int i=0;i<groups.size();i++)
+		res.push_back(groups[i][1]);
+	mergeSortVector(res, 0, res.size() - 1);
 	for (unsigned int i=0;i<groups.size();i++){
 		std::vector<int>::iterator it = std::upper_bound(res.begin(), res.end(), groups[i][0]);
 		if (it == res.end())
@@ -70,7 +93,6 @@ double	PmergeMe::sortVector( int argc, char **argv ){
 	}
 	if (argc % 2 == 0){
 		int	nb = atoi(argv[argc - 1]);
-		std::cout << argv[argc - 1];
 		std::vector<int>::iterator it = std::upper_bound(res.begin(), res.end(), nb);
 		if (it == res.end())
 			res.push_back(nb);
@@ -87,7 +109,7 @@ double	PmergeMe::sortVector( int argc, char **argv ){
 	return (((float)t/CLOCKS_PER_SEC) * 1000);
 }
 
-double	PmergeMe::sortDeque( int argc, char **argv ){
+/* double	PmergeMe::sortDeque( int argc, char **argv ){
 	clock_t	t = clock();
 	std::deque<int> res;
 	std::deque<std::deque<int> > groups ((argc - 1) / 2);
@@ -142,4 +164,4 @@ double	PmergeMe::sortDeque( int argc, char **argv ){
 	}
 	t = clock() - t;
 	return (((float)t/CLOCKS_PER_SEC) * 1000);
-}
+}*/
