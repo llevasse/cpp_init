@@ -26,6 +26,16 @@ class PmergeMe{
 		PmergeMe( PmergeMe const &obj );
 		PmergeMe &operator= ( PmergeMe const &obj );
 		~PmergeMe( void );
+		
+		class	IntOverflowException : public std::exception {
+			public :
+				virtual const char *what( void ) const throw ();
+		};
+		
+		class	NegativeIntException : public std::exception {
+			public :
+				virtual const char *what( void ) const throw ();
+		};
 };
 
 std::ostream &operator << (std::ostream &out, const PmergeMe &obj);
