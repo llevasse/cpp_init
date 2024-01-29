@@ -15,6 +15,7 @@
 
 class PmergeMe{
 	public:
+		void	sort(int argc, char **argv);
 		void	mergeSortVector(std::vector<int> &vec, int begin, int end);
 		void	mergeVector(std::vector<int> &vec, int begin, int mid, int end);
 		double sortVector(int argc, char **argv);
