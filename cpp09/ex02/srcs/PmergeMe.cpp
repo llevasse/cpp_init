@@ -87,6 +87,8 @@ double	PmergeMe::sortVector( int argc, char **argv ){
 	std::vector<int> res;
 	std::vector<std::vector<int> > groups ((argc - 1) / 2);
 	std::vector<std::vector<int> >::iterator	it = groups.begin();
+	if (!MUTE)
+		std::cout << "Before : ";
 	for (int i=1;i + 1<argc;i += 2){
 		if (!MUTE)
 			std::cout << argv[i] << " " << argv[i + 1] << " ";
@@ -130,6 +132,8 @@ double	PmergeMe::sortVector( int argc, char **argv ){
 	}
 	if (!MUTE){
 		std::cout << std::endl;
+		if (!MUTE)
+			std::cout << "After : ";
 		for (unsigned int i=0;i<res.size();i++)
 			std::cout << res[i] << " ";
 		std::cout << std::endl;
