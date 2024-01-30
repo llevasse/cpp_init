@@ -14,6 +14,8 @@
 # endif
 
 class PmergeMe{
+	private:
+		std::string	trim( std::string line );
 	public:
 		void	sort(int argc, char **argv);
 		void	mergeSortVector(std::vector<int> &vec, int begin, int end);

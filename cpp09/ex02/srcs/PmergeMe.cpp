@@ -30,6 +30,13 @@ std::ostream &operator << (std::ostream &out, const PmergeMe &obj){
 	return (out);
 }
 
+std::string PmergeMe::trim( std::string line ){
+	int	beg=0, end=line.length()-1;
+	for (; end > 0 && !isalnum(line[end]); end--);
+	for (; beg < end && !isalnum(line[beg]); beg++);
+	return (line.substr(beg, end+1));
+}
+
 void	PmergeMe::sort(int argc, char **argv){
 	try {
 		double	vecTime = sortVector(argc, argv);
@@ -87,7 +94,7 @@ double	PmergeMe::sortVector( int argc, char **argv ){
 			throw (NegativeIntException());
 		it->push_back(atoi(argv[i]));
 		it->push_back(atoi(argv[i + 1]));
-		if ((*it)[0] < 0 || (*it)[1] < 0)
+		if ((*it)[0] < 0 || (*it)[1] < 0 || trim(argv[i]).length() > 10 || trim(argv[i + 1]).length() > 10)
 			throw (IntOverflowException());
 		if ((*it)[0] > (*it)[1]){
 			int	tmp = (*it)[0];
@@ -113,7 +120,7 @@ double	PmergeMe::sortVector( int argc, char **argv ){
 		int	nb = atoi(argv[argc - 1]);
 		if (argv[argc - 1][0] == '-')
 			throw (NegativeIntException());
-		if (nb < 0)
+		if (nb < 0 || trim(argv[argc - 1]).length() > 10 )
 			throw (IntOverflowException());
 		std::vector<int>::iterator it = std::upper_bound(res.begin(), res.end(), nb);
 		if (it == res.end())
@@ -169,12 +176,8 @@ double	PmergeMe::sortDeque( int argc, char **argv ){
 	std::deque<std::deque<int> > groups ((argc - 1) / 2);
 	std::deque<std::deque<int> >::iterator	it = groups.begin();
 	for (int i=1;i + 1<argc;i += 2){
-		if (argv[i][0] == '-' || argv[i + 1][0] == '-')
-			throw (NegativeIntException());
 		it->push_back(atoi(argv[i]));
 		it->push_back(atoi(argv[i + 1]));
-		if ((*it)[0] < 0 || (*it)[1] < 0)
-			throw (IntOverflowException());
 		if ((*it)[0] > (*it)[1]){
 			int	tmp = (*it)[0];
 			(*it)[0] = (*it)[1];
@@ -195,10 +198,6 @@ double	PmergeMe::sortDeque( int argc, char **argv ){
 	}
 	if (argc % 2 == 0){
 		int	nb = atoi(argv[argc - 1]);
-		if (argv[argc - 1][0] == '-')
-			throw (NegativeIntException());
-		if (nb < 0)
-			throw (IntOverflowException());
 		std::deque<int>::iterator it = std::upper_bound(res.begin(), res.end(), nb);
 		if (it == res.end())
 			res.push_back(nb);
