@@ -55,11 +55,21 @@ std::vector<std::string>	PmergeMe::split( int argc, char **argv ){
 	return (vec);
 }
 
+void	PmergeMe::print(std::vector<std::string> vec){
+	for (std::vector<std::string>::iterator it = vec.begin(); it != vec.end(); it++)
+		std::cout << *it << " ";
+	std::cout << std::endl;
+}
+
 void	PmergeMe::sort(int argc, char **argv){
 	std::vector<std::string> vec = split(argc, argv);
 	try {
+		if (!MUTE){
+			std::cout << "Before : ";
+			print(vec);
+		}
 		double	vecTime = sortVector(vec);
-		double	deqTime = sortDeque(argc, argv);
+		double	deqTime = sortDeque(vec);
 
 		std::cout << "Vector sorting time of " << (vec.size()) << " elements : " << vecTime << std::endl;
 		std::cout << "Deque sorting time of " << (vec.size()) << " elements : " << deqTime << std::endl;
@@ -106,11 +116,7 @@ double	PmergeMe::sortVector( std::vector<std::string> argv ){
 	std::vector<int> res;
 	std::vector<std::vector<int> > groups ((argv.size()) / 2);
 	std::vector<std::vector<int> >::iterator	it = groups.begin();
-	if (!MUTE)
-		std::cout << "Before : ";
 	for (long unsigned int i=0;i + 1<argv.size();i += 2){
-		if (!MUTE)
-			std::cout << argv[i] << " " << argv[i + 1] << " ";
 		if (argv[i][0] == '-' || argv[i + 1][0] == '-')
 			throw (NegativeIntException());
 		it->push_back(atoi(argv[i].c_str()));
@@ -124,8 +130,6 @@ double	PmergeMe::sortVector( std::vector<std::string> argv ){
 		}
 		it++;
 	}
-	if (argv.size() % 2 && !MUTE)
-		std::cout << argv[argv.size() - 1];
 	for (unsigned int i=0;i<groups.size();i++)
 		res.push_back(groups[i][1]);
 	mergeSortVector(res, 0, res.size() - 1);
@@ -149,15 +153,13 @@ double	PmergeMe::sortVector( std::vector<std::string> argv ){
 		else
 			res.insert(it, nb);
 	}
+	t = clock() - t;
 	if (!MUTE){
-		std::cout << std::endl;
-		if (!MUTE)
-			std::cout << "After : ";
-		for (unsigned int i=0;i<res.size();i++)
+		std::cout << "After : ";
+		for (unsigned long int i=0; i<res.size();i++)
 			std::cout << res[i] << " ";
 		std::cout << std::endl;
 	}
-	t = clock() - t;
 	return (((float)t/CLOCKS_PER_SEC) * 1000);
 }
 
@@ -193,14 +195,14 @@ void	PmergeMe::mergeSortDeque(std::deque<int> &vec, int begin, int end){
 	mergeDeque(vec, begin, mid, end);
 }
 
-double	PmergeMe::sortDeque( int argc, char **argv ){
+double	PmergeMe::sortDeque( std::vector<std::string> argv ){
 	clock_t	t = clock();
 	std::deque<int> res;
-	std::deque<std::deque<int> > groups ((argc - 1) / 2);
+	std::deque<std::deque<int> > groups (argv.size() / 2);
 	std::deque<std::deque<int> >::iterator	it = groups.begin();
-	for (int i=1;i + 1<argc;i += 2){
-		it->push_back(atoi(argv[i]));
-		it->push_back(atoi(argv[i + 1]));
+	for (unsigned long int i=0;i + 1<argv.size();i += 2){
+		it->push_back(atoi(argv[i].c_str()));
+		it->push_back(atoi(argv[i + 1].c_str()));
 		if ((*it)[0] > (*it)[1]){
 			int	tmp = (*it)[0];
 			(*it)[0] = (*it)[1];
@@ -219,8 +221,8 @@ double	PmergeMe::sortDeque( int argc, char **argv ){
 		else
 			res.insert(it, groups[i][0]);
 	}
-	if (argc % 2 == 0){
-		int	nb = atoi(argv[argc - 1]);
+	if (argv.size() % 2){
+		int	nb = atoi(argv[argv.size() - 1].c_str());
 		std::deque<int>::iterator it = std::upper_bound(res.begin(), res.end(), nb);
 		if (it == res.end())
 			res.push_back(nb);
