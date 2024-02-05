@@ -44,8 +44,13 @@ int		isInt( std::string input ){
 }
 
 void	printInt( std::string input ){
-	std::cout << "Int type passed" << std::endl;
 	int nb = atoi(input.c_str());
+	long long check = atoll(input.c_str());
+	if (check != nb){
+		std::cout << "Bigger than max int passed" << std::endl;
+		return ;
+	}
+	std::cout << "Int type passed" << std::endl;
 	if (isprint(nb))
 		std::cout << "char : '" << static_cast<char>(nb) << "'" << std::endl;
 	else
@@ -64,8 +69,13 @@ int		isDouble( std::string input ){
 }
 
 void	printDouble( std::string input ){
-	std::cout << "Double type passed" << std::endl;
 	double nb = atof(input.c_str());
+	long long check = atoll(input.c_str());
+	if (check != nb){
+		std::cout << "Bigger than max int passed" << std::endl;
+		return ;
+	}
+	std::cout << "Double type passed" << std::endl;
 	if (input == "-inf" || input == "+inf" || input == "nan"){
 		std::cout << "char : *unprintable*" << std::endl;
 		std::cout << "int : *unprintable*" << std::endl;
@@ -92,8 +102,13 @@ int		isFloat( std::string input ){
 }
 
 void	printFloat( std::string input ){
-	std::cout << "Float type passed" << std::endl;
 	float nb = atof(input.c_str());
+	long long check = atoll(input.c_str());
+	if (check != nb){
+		std::cout << "Bigger than max int passed" << std::endl;
+		return ;
+	}
+	std::cout << "Float type passed" << std::endl;
 	
 	if (input == "-inff" || input == "+inff" || input == "nanf"){
 		std::cout << "char : *unprintable*" << std::endl;
