@@ -15,15 +15,17 @@
 
 class PmergeMe{
 	private:
-		std::string	trim( std::string line );
+		std::string					trim( std::string line );
+		std::vector<std::string>	split(int argc, char **argv);
+		void						print(std::vector<std::string> vec);
 	public:
 		void	sort(int argc, char **argv);
 		void	mergeSortVector(std::vector<int> &vec, int begin, int end);
 		void	mergeVector(std::vector<int> &vec, int begin, int mid, int end);
-		double sortVector(int argc, char **argv);
+		double sortVector(std::vector<std::string> argv);
 		void	mergeSortDeque(std::deque<int> &vec, int begin, int end);
 		void	mergeDeque(std::deque<int> &vec, int begin, int mid, int end);
-		double sortDeque(int argc, char **argv);
+		double sortDeque(std::vector<std::string> argv);
 		PmergeMe( void );
 		PmergeMe( PmergeMe const &obj );
 		PmergeMe &operator= ( PmergeMe const &obj );

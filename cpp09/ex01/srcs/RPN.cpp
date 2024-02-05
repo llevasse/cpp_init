@@ -16,8 +16,11 @@ void	RPN::do_op( char c ){
 		_stack.push(sec - first);
 	else if (c == '+')
 		_stack.push(sec + first);
-	else if (c == '/')
+	else if (c == '/'){
+		if (first == 0)
+			throw (DivisionZeroException());
 		_stack.push(sec / first);
+	}
 	else if (c == '*')
 		_stack.push(sec * first);
 }
@@ -71,7 +74,7 @@ RPN::~RPN( void ){
 		std::cout << "RPN \033[31mdestructor\033[0m called!" << std::endl;
 }
 
-std::stack<int>	RPN::getStack( void ) const{
+std::stack<float>	RPN::getStack( void ) const{
 	return (_stack);
 }
 
@@ -83,4 +86,7 @@ std::ostream &operator << (std::ostream &out, const RPN &obj){
 
 const	char*RPN::InvalidInputException::what( void ) const throw(){
 	return ("Invalid line");
+}
+const	char*RPN::DivisionZeroException::what( void ) const throw(){
+	return ("Division by zero");
 }

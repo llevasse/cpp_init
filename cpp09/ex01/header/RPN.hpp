@@ -10,7 +10,7 @@
 
 class RPN{
 	private:
-		std::stack<int>	_stack;
+		std::stack<float>	_stack;
 		RPN( void );
 		void	do_op(char c);
 	public:
@@ -19,10 +19,14 @@ class RPN{
 		RPN &operator= ( RPN const &obj );
 		~RPN( void );
 
-		std::stack<int>	getStack( void ) const;
+		std::stack<float>	getStack( void ) const;
 
 		void	solve( std::string operands );
 		class InvalidInputException : public std::exception{
+			public:
+				virtual const char	*what( void ) const throw();
+		};
+		class DivisionZeroException : public std::exception{
 			public:
 				virtual const char	*what( void ) const throw();
 		};
