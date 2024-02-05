@@ -71,7 +71,7 @@ int		isDouble( std::string input ){
 void	printDouble( std::string input ){
 	double nb = atof(input.c_str());
 	long long check = atoll(input.c_str());
-	if (check != nb || (input[0] != '-' && nb < 0)){
+	if ((check != nb || (input[0] != '-' && nb < 0)) && input != "-inf" && input != "+inf" && input != "nan"){
 		std::cout << "Invalid int passed" << std::endl;
 		return ;
 	}
@@ -104,7 +104,7 @@ int		isFloat( std::string input ){
 void	printFloat( std::string input ){
 	float nb = atof(input.c_str());
 	long long check = atoll(input.c_str());
-	if (check != nb || (input[0] != '-' && nb < 0)){
+	if ((check != nb || (input[0] != '-' && nb < 0)) && input != "-inff" && input != "+inff" && input != "nanf"){
 		std::cout << "Invalid int passed" << std::endl;
 		return ;
 	}

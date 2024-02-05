@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <stdlib.h>
+# include <stdio.h>
 class ScalarConverter{
 	public:
 		ScalarConverter( void );
