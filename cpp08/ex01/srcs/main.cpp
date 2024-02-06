@@ -76,7 +76,6 @@ int	main()
 		for (int i=0;i<1000000;i++)
 			vec.push_back(std::rand());
 		sp.addNumber(vec);
-//		std::cout << sp << std::endl;
 		std::cout << "Shortest span : " << sp.shortestSpan() << std::endl;
 		std::cout << "Longest span : " << sp.longestSpan() << std::endl;
 	}
