@@ -76,46 +76,12 @@ bool	valideDay(int year, int month, int day){
 	return (1);
 }
 
-std::string	decreaseDate( std::string date ){
-	int	year = atoi(date.substr(0, 4).c_str());
-	int	month = atoi(date.substr(5, 7).c_str());
-	int	day = atoi(date.substr(8).c_str());
-	std::ostringstream s;
-	
-	if (day == 1){
-		if (month != 1)
-			month--;
-		else{
-			month = 12;
-			year--;
-		}
-		day = 31;
-		if (month == 2){
-			day = 28;
-			if (isLeap(year))
-				day = 29;
-		}
-		else if (month == 4 || month == 6 || month == 9 || month == 11)
-			day = 30;
-	}
-	else
-		day--;
-	s << year << "-";
-	if (month < 10)
-		s << "0";
-	s << month << "-";
-	if (day < 10)
-		s << "0";
-	s << day;
-	return (s.str());
-}
-
 std::string BitcoinExchange::getClosestDate( std::string date ){
-	std::string	prev (date);
+	std::map<std::string, float>::iterator it = _map.upper_bound(date);
 
-	while (_map.find(prev) == _map.end())
-		prev = decreaseDate(prev);
-	return (prev);	
+	if (it != _map.end())
+		return (it->first);
+	return ((--it)->first);
 }
 
 bool BitcoinExchange::checkDate( std::string date ){
