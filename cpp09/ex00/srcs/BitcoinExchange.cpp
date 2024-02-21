@@ -79,6 +79,8 @@ bool	valideDay(int year, int month, int day){
 std::string BitcoinExchange::getClosestDate( std::string date ){
 	std::map<std::string, float>::iterator it = _map.upper_bound(date);
 
+	if (it == _map.begin())
+		return (it->first);
 	if (it != _map.end())
 		return ((--it)->first);
 	return ((--it)->first);
