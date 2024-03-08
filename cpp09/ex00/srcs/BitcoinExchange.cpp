@@ -9,15 +9,24 @@ BitcoinExchange::BitcoinExchange( void ){
 	float		value;
 	std::size_t	found;
 	getline(inf,line);
+	int	i=1;
 	while (getline(inf, line)){
 		found = line.find(",");
-		if (found == std::string::npos)
-			break ;
+		i++;
+		if (found == std::string::npos){
+			std::cout << "Invalid line (line : " << i << ") in data.csv, this line will be skipped!" << std::endl;
+			continue;
+		}
 		date = line.substr(0, found);
-		if (!checkDate(date))
-			return ;
-		value = atof(line.substr(found + 1).c_str());
-		_map[date] = value;
+		try {
+			checkDate(date);
+			value = atof(line.substr(found + 1).c_str());
+			_map[date] = value;
+		}
+		catch ( const std::exception &e ){
+			std::cout << "Error : " << e.what() << " (line : " << i << ") in data.csv, this line will be skipped!" << std::endl;
+			continue;
+		}
 	}
 	if (!MUTE)
 		std::cout << "BitcoinExchange default \033[32mconstructor\033[0m called!" << std::endl;
