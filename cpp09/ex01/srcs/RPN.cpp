@@ -50,7 +50,7 @@ void RPN::solve( std::string operands ){
 		std::cout << std::endl;
 	}
 	catch (std::exception &e){
-		std::cerr << "Error : " << e.what() << std::endl;
+		std::cout << "Error : " << e.what() << std::endl;
 	}
 }
 
