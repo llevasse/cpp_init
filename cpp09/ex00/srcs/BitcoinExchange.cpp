@@ -126,7 +126,7 @@ void BitcoinExchange::checkLine( std::string line, std::string &date, float &val
 	if (line.length() < 14)
 		throw (InvalidLineException());
 	date = line.substr(0, 10);
-	if (!checkDate(date))
+	if (!checkDate(date) || line.substr(10,3) != " | ")
 		throw (InvalidLineException());
 	value = atof(line.substr(13).c_str());
 	if (value < 0)
